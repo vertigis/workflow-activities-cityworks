@@ -1,0 +1,30 @@
+import { LaborRateType } from './LaborRateType';
+import { LaborCostDetail } from './LaborCostDetail';
+export interface RequestLaborCost {
+    AcctNum?: string;
+    BenefitCost?: number;
+    Cost?: number;
+    Description?: string;
+    DomainId?: number;
+    FinishTime?: Date;
+    GroupName?: string;
+    HolidayCost?: number;
+    Hours?: number;
+    LaborCostDetails?: LaborCostDetail[];
+    LaborCostId?: number;
+    LaborName?: string;
+    LaborSid?: number;
+    OccupationCode?: string;
+    OccupationId?: number;
+    OtherCost?: number;
+    OverheadCost?: number;
+    OvertimeCost?: number;
+    RateType?: LaborRateType;
+    RegularCost?: number;
+    RequestId?: number;
+    ShiftDiffCost?: number;
+    StandbyCost?: number;
+    StartTime?: Date;
+    TimesheetId?: number;
+    TransDate?: Date;
+}

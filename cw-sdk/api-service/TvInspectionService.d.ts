@@ -1,0 +1,34 @@
+import { IApiService } from './i-api-service';
+import { TvInspectionServiceTypes as SvcDef } from '../api-interface/TvInspectionService';
+import Requests = SvcDef.Requests;
+import Responses = SvcDef.Responses;
+import ITvInspectionService = SvcDef.ITvInspectionService;
+export declare class TvInspectionService implements ITvInspectionService {
+    private _service;
+    constructor(service: IApiService);
+    AddObservation(request: Requests.AddObservation): Promise<Responses.AddObservation>;
+    ById(request: Requests.ById): Promise<Responses.ById>;
+    ByIds(request: Requests.ByIds): Promise<Responses.ByIds>;
+    ByWorkOrder(request: Requests.ByWorkOrder): Promise<Responses.ByWorkOrder>;
+    CctvObservationCodeTypes(request: Requests.CctvObservationCodeTypes): Promise<Responses.CctvObservationCodeTypes>;
+    ChangeCustomFieldCategory(request: Requests.ChangeCustomFieldCategory): Promise<Responses.ChangeCustomFieldCategory>;
+    CodeDescriptions(request: Requests.CodeDescriptions): Promise<Responses.CodeDescriptions>;
+    ConfirmDyeLeaks(request: Requests.ConfirmDyeLeaks): Promise<Responses.ConfirmDyeLeaks>;
+    ConfirmSmokeTests(request: Requests.ConfirmSmokeTests): Promise<Responses.ConfirmSmokeTests>;
+    Create(request: Requests.Create): Promise<Responses.Create>;
+    CreateFromPacp(request: Requests.CreateFromPacp): Promise<Responses.CreateFromPacp>;
+    CreateSearchDefinition(request: Requests.CreateSearchDefinition): Promise<Responses.CreateSearchDefinition>;
+    DescriptionScores(request: Requests.DescriptionScores): Promise<Responses.DescriptionScores>;
+    DownstreamNode(request: Requests.DownstreamNode): Promise<Responses.DownstreamNode>;
+    InspectedBy(request: Requests.InspectedBy): Promise<Responses.InspectedBy>;
+    Observation(request: Requests.Observation): Promise<Responses.Observation>;
+    ObservationCauseCodeDescriptions(request: Requests.ObservationCauseCodeDescriptions): Promise<Responses.ObservationCauseCodeDescriptions>;
+    ObservationCodeTypes(request: Requests.ObservationCodeTypes): Promise<Responses.ObservationCodeTypes>;
+    Observations(request: Requests.Observations): Promise<Responses.Observations>;
+    ReviewedBy(request: Requests.ReviewedBy): Promise<Responses.ReviewedBy>;
+    Search(request: Requests.Search): Promise<Responses.Search>;
+    UnitsOfMeasure(request: Requests.UnitsOfMeasure): Promise<Responses.UnitsOfMeasure>;
+    Update(request: Requests.Update): Promise<Responses.Update>;
+    UpdateObservation(request: Requests.UpdateObservation): Promise<Responses.UpdateObservation>;
+    UpstreamNode(request: Requests.UpstreamNode): Promise<Responses.UpstreamNode>;
+}

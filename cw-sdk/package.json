@@ -1,0 +1,10 @@
+{
+  "name": "cw-sdk",
+  "version": "15.6.1",
+  "description": "An SDK for using the Cityworks API.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cityworks",
+  "license": "UNLICENSED"
+}

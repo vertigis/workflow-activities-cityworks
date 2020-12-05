@@ -1,0 +1,30 @@
+import { DayOfWeek } from './DayOfWeek';
+import { ApplyLevel } from './ApplyLevel';
+import { SearchType } from './SearchType';
+export interface SearchDefinitionName {
+    AlternateCsvUrl?: string;
+    AlternateMapUrl?: string;
+    AlternateServiceUrl?: string;
+    AlternateShapeFileUrl?: string;
+    ApplyToEntity?: string;
+    ApplyToEventLayer?: boolean;
+    ApplyToInbox?: boolean;
+    CalculationId?: number;
+    CsvUrl?: string;
+    DateTimeModified?: Date;
+    Description?: string;
+    DomainId?: number;
+    EmployeeName?: string;
+    EmployeeSid?: number;
+    EnableEurl?: boolean;
+    Keywords?: string;
+    MapUrl?: string;
+    SearchFor?: SearchType;
+    SearchId?: number;
+    SearchName?: string;
+    ServiceUrl?: string;
+    ShapeFileUrl?: string;
+    SharedWithin?: ApplyLevel;
+    StartDayOfWeek?: DayOfWeek;
+    TableName?: string;
+}

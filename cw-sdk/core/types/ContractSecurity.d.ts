@@ -1,0 +1,30 @@
+export interface ContractSecurity {
+    CanAddAttachment?: boolean;
+    CanAddClaim?: boolean;
+    CanAddInvoice?: boolean;
+    CanAddLineItems?: boolean;
+    CanAddPermit?: boolean;
+    CanAddSubcontractor?: boolean;
+    CanDelete?: boolean;
+    CanDeleteAttachment?: boolean;
+    CanDeleteClaim?: boolean;
+    CanDeleteInvoice?: boolean;
+    CanDeleteLineItems?: boolean;
+    CanDeletePermit?: boolean;
+    CanDeleteSubcontractor?: boolean;
+    CanUpdate?: boolean;
+    CanUpdateAttachment?: boolean;
+    CanUpdateClaim?: boolean;
+    CanUpdateInvoice?: boolean;
+    CanUpdateLineItems?: boolean;
+    CanUpdatePermit?: boolean;
+    CanUpdateSubcontractor?: boolean;
+    CanView?: boolean;
+    CanViewAttachment?: boolean;
+    CanViewClaim?: boolean;
+    CanViewInvoice?: boolean;
+    CanViewLineItems?: boolean;
+    CanViewPermit?: boolean;
+    CanViewSubcontractor?: boolean;
+    ContractId?: number;
+}

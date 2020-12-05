@@ -1,0 +1,29 @@
+export interface CaPeopleItemBase {
+    AddressLine1?: string;
+    AddressLine2?: string;
+    AddressLine3?: string;
+    CaObjectId?: number;
+    CaPeopleId?: number;
+    CityName?: string;
+    CommentText?: string;
+    CompanyName?: string;
+    CountryCode?: string;
+    CreatedBy?: number;
+    DateCreated?: Date;
+    DateModified?: Date;
+    Email?: string;
+    FaxNumber?: string;
+    ModifiedBy?: number;
+    Name?: string;
+    PeopleId?: number;
+    PhoneHome?: string;
+    PhoneMobile?: string;
+    PhoneWork?: string;
+    PhoneWorkExt?: string;
+    RoleCode?: string;
+    RoleDesc?: string;
+    RoleId?: number;
+    StateCode?: string;
+    WebSiteUrl?: string;
+    ZipCode?: string;
+}

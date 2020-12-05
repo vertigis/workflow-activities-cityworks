@@ -1,0 +1,30 @@
+import { QASequenceModel } from './QASequenceModel';
+import { WorkDurationUnit } from './WorkDurationUnit';
+export interface ProblemLeafBase {
+    AutoClose?: boolean;
+    Cancel?: boolean;
+    Comments?: string;
+    DateModified?: Date;
+    DefaultProject?: string;
+    DefaultProjectSid?: number;
+    Description?: string;
+    DispatchTo?: number;
+    DomainId?: number;
+    Duration?: number;
+    DurationUnit?: WorkDurationUnit;
+    Effort?: number;
+    ForPublicSite?: boolean;
+    OtherSysCode?: string;
+    OtherSysCodeCWId?: number;
+    OtherSysDesc1?: string;
+    OtherSysDesc2?: string;
+    Printer?: string;
+    Priority?: string;
+    ProbCategory?: string;
+    ProblemCode?: string;
+    ProblemSid?: number;
+    QAModel?: QASequenceModel;
+    ReqCustFieldCatId?: number;
+    SRPrintTmpt?: string;
+    SubmitTo?: number;
+}

@@ -1,0 +1,32 @@
+export interface ContractLineItemSummary {
+    ActualAmountRemaining?: number;
+    ActualAmountSpent?: number;
+    ActualPercentOfDesignAmount?: number;
+    ActualPercentRemaining?: number;
+    ActualPercentSpent?: number;
+    ActualQtyAvailable?: number;
+    ActualQtyUsed?: number;
+    ContractAmount?: number;
+    ContractId?: number;
+    ContractUnitCost?: number;
+    ContractUnits?: number;
+    Description?: string;
+    DesignAmount?: number;
+    DesignUnitCost?: number;
+    EstimatedAmountRemaining?: number;
+    EstimatedAmountSpent?: number;
+    EstimatedPercentOfDesignAmount?: number;
+    EstimatedPercentRemaining?: number;
+    EstimatedPercentSpent?: number;
+    EstimatedQtyAvailable?: number;
+    EstimatedQtyUsed?: number;
+    Id?: number;
+    ItemNumber?: string;
+    TotalAmountRemaining?: number;
+    TotalAmountSpent?: number;
+    TotalPercentRemaining?: number;
+    TotalPercentSpent?: number;
+    TotalQtyAvailable?: number;
+    TotalQtyUsed?: number;
+    UnitType?: string;
+}

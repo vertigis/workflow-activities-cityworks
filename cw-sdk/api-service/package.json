@@ -1,0 +1,11 @@
+{
+    "name": "cw-sdk/api-service",
+    "typings": "../api-service.d.ts",
+    "es2015": "../esm2015/api-service.js",
+    "esm2015": "../esm2015/api-service.js",
+    "esm5": "../esm5/api-service.js",
+    "fesm2015": "../fesm2015/api-service.js",
+    "fesm5": "../fesm5/api-service.js",
+    "main": "../bundles/api-service.umd.js",
+    "module": "../esm5/api-service.js"
+  }

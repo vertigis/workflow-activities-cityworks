@@ -1,0 +1,11 @@
+{
+    "name": "cw-sdk/api-interface",
+    "typings": "../api-interface.d.ts",
+    "es2015": "../esm2015/api-interface.js",
+    "esm2015": "../esm2015/api-interface.js",
+    "esm5": "../esm5/api-interface.js",
+    "fesm2015": "../fesm2015/api-interface.js",
+    "fesm5": "../fesm5/api-interface.js",
+    "main": "../bundles/api-interface.umd.js",
+    "module": "../esm5/api-interface.js"
+  }

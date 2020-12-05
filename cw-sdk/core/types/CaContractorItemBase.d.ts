@@ -1,0 +1,37 @@
+export interface CaContractorItemBase {
+    AddressLine1?: string;
+    AddressLine2?: string;
+    AddressLine3?: string;
+    BusinessName?: string;
+    CaContractorId?: number;
+    CaObjectId?: number;
+    CityName?: string;
+    CommentText?: string;
+    ContractorDesc?: string;
+    ContractorId?: number;
+    ContractorType?: string;
+    ContractorTypeId?: number;
+    CreatedBy?: number;
+    CreatedByLoginId?: string;
+    DateCreated?: Date;
+    DateModified?: Date;
+    Email?: string;
+    FaxNumber?: string;
+    FirstName?: string;
+    GenLiability?: string;
+    GenLiabilityExpDate?: Date;
+    LastName?: string;
+    LicenseExpirationDate?: Date;
+    LicenseNum?: string;
+    LocalLicenseId?: number;
+    ModifiedBy?: number;
+    ModifiedByLoginId?: string;
+    PhoneHome?: string;
+    PhoneMobile?: string;
+    PhoneWork?: string;
+    StateCode?: string;
+    StateLicenseId?: number;
+    WcLiabilityCompany?: string;
+    WCLiabilityExpDate?: Date;
+    ZipCode?: string;
+}

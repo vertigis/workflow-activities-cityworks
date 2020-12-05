@@ -1,0 +1,22 @@
+export var GISServiceType;
+(function (GISServiceType) {
+    GISServiceType[GISServiceType["DYNAMICMAP"] = 0] = "DYNAMICMAP";
+    GISServiceType[GISServiceType["TILEDMAP"] = 1] = "TILEDMAP";
+    GISServiceType[GISServiceType["IMAGEMAP"] = 2] = "IMAGEMAP";
+    GISServiceType[GISServiceType["GEOCODE"] = 3] = "GEOCODE";
+    GISServiceType[GISServiceType["GEOMETRY"] = 4] = "GEOMETRY";
+    GISServiceType[GISServiceType["FEATURELAYER"] = 5] = "FEATURELAYER";
+    GISServiceType[GISServiceType["WEBMAP"] = 6] = "WEBMAP";
+    GISServiceType[GISServiceType["HEATMAP"] = 7] = "HEATMAP";
+    GISServiceType[GISServiceType["KMLLAYER"] = 8] = "KMLLAYER";
+    GISServiceType[GISServiceType["WMSLAYER"] = 9] = "WMSLAYER";
+    GISServiceType[GISServiceType["GEODATA"] = 10] = "GEODATA";
+    GISServiceType[GISServiceType["SOE"] = 11] = "SOE";
+    GISServiceType[GISServiceType["UNKNOWN"] = 12] = "UNKNOWN";
+    GISServiceType[GISServiceType["RESOURCEPROXY"] = 13] = "RESOURCEPROXY";
+    GISServiceType[GISServiceType["TILEPACKAGE"] = 14] = "TILEPACKAGE";
+    GISServiceType[GISServiceType["PRINTING"] = 15] = "PRINTING";
+    GISServiceType[GISServiceType["ROUTING"] = 16] = "ROUTING";
+    GISServiceType[GISServiceType["VECTORTILE"] = 17] = "VECTORTILE";
+    GISServiceType[GISServiceType["MOBILEMAPPACKAGE"] = 18] = "MOBILEMAPPACKAGE";
+})(GISServiceType || (GISServiceType = {}));
