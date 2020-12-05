@@ -14,7 +14,7 @@ describe("GetEmployees", () => {
         const employee: EmployeeBase = {
             LoginName: "bobby",
         };
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: employee
@@ -38,7 +38,7 @@ describe("GetEmployees", () => {
         }, {
             LoginName: "billy",
         }];
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: employees
@@ -62,7 +62,7 @@ describe("GetEmployees", () => {
         }, {
             LoginName: "billy",
         }];
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: employees
@@ -86,7 +86,7 @@ describe("GetEmployees", () => {
         }, {
             LoginName: "billy",
         }];
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: employees

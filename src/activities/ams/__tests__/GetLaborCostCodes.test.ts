@@ -23,7 +23,7 @@ describe("GetLaborCostCodes", () => {
     });
     it("returns cost codes (single employeeSids)", async () => {
         const codes: CostCode[] = [{ Code: "1" }, { Code: "2" }];
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: codes
@@ -42,7 +42,7 @@ describe("GetLaborCostCodes", () => {
     });
     it("returns cost codes (multiple employeeSids)", async () => {
         const codes: CostCode[] = [{ Code: "1" }, { Code: "2" }];
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: codes

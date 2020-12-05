@@ -19,7 +19,7 @@ describe("UseCityworksService", () => {
         const value = {
             foo: "baz",
         };
-        const mockCall = jest.fn(async () => {
+        const mockCall = jest.fn(async (data: any, path: string) => {
             return {
                 Status: CoreResponseStatus.Ok,
                 Value: value
@@ -32,7 +32,7 @@ describe("UseCityworksService", () => {
             login: jest.fn(),
         };
         const activity = new UseCityworksService();
-        
+
         let result = await activity.execute({ service: mockService, path: "path/1" });
         expect(result.result).toStrictEqual(value);
         expect(mockCall).toHaveBeenCalledWith({}, "path/1");
