@@ -36,7 +36,7 @@ export interface GetMaterialOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwMaterial
  * @description Searches for Cityworks material.
  */

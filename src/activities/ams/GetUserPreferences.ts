@@ -32,7 +32,7 @@ export interface GetUserPreferencesOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Gets the preferences for a user.
  */
 export class GetUserPreferences implements IActivityHandler {

@@ -34,7 +34,7 @@ export interface GetWorkOrdersOutputs {
 
 /**
  * @defaultName cwWorkOrders
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Searches for Cityworks work orders.
  */
 export class GetWorkOrders implements IActivityHandler {

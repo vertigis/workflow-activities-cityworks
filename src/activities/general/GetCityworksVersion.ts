@@ -22,7 +22,7 @@ export interface GetCityworksVersionOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - General
  * @defaultName cwVersion
  * @description Gets the version of the Cityworks service.
  */

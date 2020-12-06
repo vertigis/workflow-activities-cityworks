@@ -34,7 +34,7 @@ export interface GetWorkOrderAttachmentsOutputs {
 
 /**
  * @defaultName cwWorkOrderAttachments
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Gets Cityworks work order attachments.
  */
 export class GetWorkOrderAttachments implements IActivityHandler {

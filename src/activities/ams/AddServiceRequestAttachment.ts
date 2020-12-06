@@ -42,7 +42,7 @@ export interface AddServiceRequestAttachmentOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks service request.
  */
 export class AddServiceRequestAttachment implements IActivityHandler {

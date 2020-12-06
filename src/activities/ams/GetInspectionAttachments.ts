@@ -29,7 +29,7 @@ export interface GetInspectionAttachmentsOutputs {
 
 /**
  * @defaultName cwInspectionAttachments
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Gets Cityworks inspections attachments.
  */
 export class GetInspectionAttachments implements IActivityHandler {

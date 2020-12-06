@@ -27,7 +27,7 @@ export interface GetCityworksUserOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - General
  * @defaultName cwUser
  * @description Gets information about a Cityworks user.
  */

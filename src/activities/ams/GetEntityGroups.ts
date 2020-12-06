@@ -28,7 +28,7 @@ export interface GetEntityGroupsOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwEntityGroups
  * @description Gets the Cityworks entity groups.
  */

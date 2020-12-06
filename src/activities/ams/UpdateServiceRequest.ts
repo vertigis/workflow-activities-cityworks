@@ -29,7 +29,7 @@ export interface UpdateServiceRequestOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Update a Cityworks service request.
  */
 export class UpdateServiceRequest implements IActivityHandler {

@@ -15,6 +15,7 @@ export interface CreateServiceRequestInputs {
     service: IApiService;
     /**
      * @description The service request data.
+     * @required
      */
     serviceRequest: ServiceRequestServiceTypes.Requests.Create;
 }
@@ -28,13 +29,16 @@ export interface CreateServiceRequestOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Create a Cityworks service request.
  */
 export class CreateServiceRequest implements IActivityHandler {
     async execute(inputs: CreateServiceRequestInputs): Promise<CreateServiceRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
+        }
+        if (!inputs.serviceRequest) {
+            throw new Error("serviceRequest is required");
         }
 
         const service = new ServiceRequestService(inputs.service);

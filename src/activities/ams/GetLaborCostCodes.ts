@@ -34,7 +34,7 @@ export interface GetLaborCostCodesOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwCostCodes
  * @description Gets the Cityworks labor cost codes.
  */

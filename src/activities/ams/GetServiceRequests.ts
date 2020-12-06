@@ -29,7 +29,7 @@ export interface GetServiceRequestsOutputs {
 
 /**
  * @defaultName cwServiceRequests
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Searches for Cityworks service requests.
  */
 export class GetServiceRequests implements IActivityHandler {

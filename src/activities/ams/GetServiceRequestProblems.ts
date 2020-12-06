@@ -30,7 +30,7 @@ export interface GetServiceRequestProblemsOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Gets a list of problems for a Cityworks service request.
  */
 export class GetServiceRequestProblems implements IActivityHandler {

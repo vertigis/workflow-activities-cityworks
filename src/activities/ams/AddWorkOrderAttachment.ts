@@ -51,7 +51,7 @@ export interface AddWorkOrderAttachmentOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks work order.
  */
 export class AddWorkOrderAttachment implements IActivityHandler {

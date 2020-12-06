@@ -29,7 +29,7 @@ export interface GetInspectionsOutputs {
 
 /**
  * @defaultName cwInspections
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Searches for Cityworks inspections.
  */
 export class GetInspections implements IActivityHandler {

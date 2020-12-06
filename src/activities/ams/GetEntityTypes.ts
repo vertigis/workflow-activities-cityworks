@@ -35,7 +35,7 @@ export interface GetEntityTypesOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwEntityTypes
  * @description Gets the Cityworks entity types.
  */

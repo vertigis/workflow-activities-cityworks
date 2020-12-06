@@ -32,7 +32,7 @@ export interface GetEquipmentOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwEmployees
  * @description Searches for Cityworks employees.
  */

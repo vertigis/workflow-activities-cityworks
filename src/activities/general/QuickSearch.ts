@@ -29,7 +29,7 @@ export interface QuickSearchOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - General
  * @description Wildcard search for Inspections, Permits, Work Orders and Service Requests.
  */
 export class QuickSearch implements IActivityHandler {

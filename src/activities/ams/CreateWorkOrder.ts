@@ -15,6 +15,7 @@ export interface CreateWorkOrderInputs {
     service: IApiService;
     /**
      * @description The work order data.
+     * @required
      */
     workOrder: WorkOrderServiceTypes.Requests.Create;
 }
@@ -28,13 +29,16 @@ export interface CreateWorkOrderOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Create a Cityworks work order.
  */
 export class CreateWorkOrder implements IActivityHandler {
     async execute(inputs: CreateWorkOrderInputs): Promise<CreateWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
+        }
+        if (!inputs.workOrder) {
+            throw new Error("workOrder is required");
         }
 
         const service = new WorkOrderService(inputs.service);

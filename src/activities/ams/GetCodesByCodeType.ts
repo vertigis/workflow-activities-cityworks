@@ -28,7 +28,7 @@ export interface GetCodesByCodeTypeOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Gets the list of Cityworks codes for the given code types.
  */
 export class GetCodesByCodeType implements IActivityHandler {

@@ -32,7 +32,7 @@ export interface GetWorkOrderTemplatesOutputs {
 
 /**
  * @defaultName cwWorkOrderTemplates
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Searches for Cityworks work order templates.
  */
 export class GetWorkOrderTemplates implements IActivityHandler {

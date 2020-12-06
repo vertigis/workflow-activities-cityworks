@@ -23,7 +23,7 @@ export interface GetLaborJobCodesOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @defaultName cwJobCodes
  * @description Gets the Cityworks labor job codes.
  */

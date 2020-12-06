@@ -28,7 +28,7 @@ export interface CloseWorkOrdersOutputs {
 }
 
 /**
- * @category Cityworks
+ * @category Cityworks - AMS
  * @description Closes Cityworks work orders.
  */
 export class CloseWorkOrders implements IActivityHandler {
