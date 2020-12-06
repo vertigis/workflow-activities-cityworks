@@ -1,4 +1,5 @@
 // Activities will be re-exported from this file.
+export * from "./activities/ams/AddServiceRequestAttachment";
 export * from "./activities/ams/CloseWorkOrders";
 export * from "./activities/ams/CreateServiceRequest";
 export * from "./activities/ams/CreateWorkOrder";
@@ -23,27 +24,3 @@ export * from "./activities/general/GetCityworksUser";
 export * from "./activities/general/GetCityworksVersion";
 export * from "./activities/general/QuickSearch";
 export * from "./activities/UseCityworksService";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -100,7 +100,7 @@ export interface UseCityworksServiceInputs {
     string;
 
     /**
-     * @description The parameter object to pass to the operation. 
+     * @description The data object to pass to the services operation. 
      */
     data?: any;
 }
