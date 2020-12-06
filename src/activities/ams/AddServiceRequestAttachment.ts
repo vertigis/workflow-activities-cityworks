@@ -1,7 +1,7 @@
 import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
 import { AttachmentsServiceTypes } from "cw-sdk/api-interface/AttachmentsService";
 import { IApiService } from "cw-sdk/api-service/i-api-service";
-import { RequestBase } from "cw-sdk/core/types";
+import { RequestAttachment } from "cw-sdk/core/types";
 import { checkResponse } from "../utils";
 
 /** An interface that defines the inputs of the activity. */
@@ -36,9 +36,9 @@ export interface AddServiceRequestAttachmentInputs {
 /** An interface that defines the outputs of the activity. */
 export interface AddServiceRequestAttachmentOutputs {
     /**
-     * @description The service request.
+     * @description The service request attachment.
      */
-    result?: RequestBase;
+    result?: RequestAttachment;
 }
 
 /**
