@@ -5,7 +5,7 @@ import { WorkOrderBase } from "cw-sdk/core/types";
 import { checkResponse } from "../utils";
 
 /** An interface that defines the inputs of the activity. */
-export interface CloseWorkOrdersInputs {
+export interface CloseWorkOrderInputs {
     /**
      * @displayName API Service
      * @description The Cityworks API Service.
@@ -15,12 +15,13 @@ export interface CloseWorkOrdersInputs {
     /**
      * @displayName Work Order IDs
      * @description The ID or IDs of the work orders to close.
+     * @required
      */
     workOrderIds: string | string[];
 }
 
 /** An interface that defines the outputs of the activity. */
-export interface CloseWorkOrdersOutputs {
+export interface CloseWorkOrderOutputs {
     /**
      * @description The list of closed work orders.
      */
@@ -31,10 +32,13 @@ export interface CloseWorkOrdersOutputs {
  * @category Cityworks - AMS
  * @description Closes Cityworks work orders.
  */
-export class CloseWorkOrders implements IActivityHandler {
-    async execute(inputs: CloseWorkOrdersInputs): Promise<CloseWorkOrdersOutputs> {
+export class CloseWorkOrder implements IActivityHandler {
+    async execute(inputs: CloseWorkOrderInputs): Promise<CloseWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
+        }
+        if (!inputs.workOrderIds) {
+            throw new Error("workOrderIds is required");
         }
 
         const service = new WorkOrderService(inputs.service);
