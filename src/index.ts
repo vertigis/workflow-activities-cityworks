@@ -20,6 +20,7 @@ export * from "./activities/ams/GetServiceRequestProblems";
 export * from "./activities/ams/GetServiceRequests";
 export * from "./activities/ams/GetUserPreferences";
 export * from "./activities/ams/GetWorkOrderAttachments";
+export * from "./activities/ams/GetWorkOrderEntities";
 export * from "./activities/ams/GetWorkOrders";
 export * from "./activities/ams/GetWorkOrderTemplates";
 export * from "./activities/ams/UpdateServiceRequest";
