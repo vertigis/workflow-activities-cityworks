@@ -1,4 +1,5 @@
 // Activities will be re-exported from this file.
+export * from "./activities/ams/AddInspectionAttachment";
 export * from "./activities/ams/AddServiceRequestAttachment";
 export * from "./activities/ams/AddWorkOrderAttachment";
 export * from "./activities/ams/CloseWorkOrders";
