@@ -19,7 +19,7 @@ export interface GetLaborJobCodesOutputs {
     /**
      * @description The labor job codes.
      */
-    codes?: JobCode[];
+    result?: JobCode[];
 }
 
 /**
@@ -37,7 +37,7 @@ export class GetLaborJobCodes implements IActivityHandler {
         checkResponse(response);
         
         return {
-            codes: response.Value,
+            result: response.Value,
         };
     }
 }

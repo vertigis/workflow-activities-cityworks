@@ -31,13 +31,9 @@ export interface GetEmployeesInputs {
 /** An interface that defines the outputs of the activity. */
 export interface GetEmployeesOutputs {
     /**
-     * @description The employee or first employee in the list of employees.
-     */
-    employee?: EmployeeBase;
-    /**
      * @description The list of employees.
      */
-    employees?: EmployeeBase[];
+    result?: EmployeeBase[];
 }
 
 /**
@@ -60,8 +56,7 @@ export class GetEmployees implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    employee: response.Value,
-                    employees: response.Value && [response.Value] || [],
+                    result: response.Value && [response.Value] || [],
                 };
             } else {
                 const response = await service.ByIds({
@@ -69,8 +64,7 @@ export class GetEmployees implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    employee: response.Value?.[0],
-                    employees: response.Value,
+                    result: response.Value,
                 };
             }
         } else if (inputs.groupId) {
@@ -80,8 +74,7 @@ export class GetEmployees implements IActivityHandler {
             });
             checkResponse(response);
             return {
-                employee: response.Value?.[0],
-                employees: response.Value,
+                result: response.Value,
             };
         } else {
             const response = await service.All({
@@ -89,8 +82,7 @@ export class GetEmployees implements IActivityHandler {
             });
             checkResponse(response);
             return {
-                employee: response.Value?.[0],
-                employees: response.Value,
+                result: response.Value,
             };
         }
     }

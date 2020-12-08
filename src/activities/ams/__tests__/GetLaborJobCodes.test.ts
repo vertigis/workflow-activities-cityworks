@@ -24,6 +24,6 @@ describe("GetLaborJobCodes", () => {
         };
         const activity = new GetLaborJobCodes();
         const result = await activity.execute({ service: mockService });
-        expect(result.codes).toStrictEqual(codes);
+        expect(result.result).toStrictEqual(codes);
     });
 });

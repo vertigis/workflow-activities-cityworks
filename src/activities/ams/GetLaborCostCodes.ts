@@ -30,7 +30,7 @@ export interface GetLaborCostCodesOutputs {
     /**
      * @description The labor cost codes.
      */
-    codes?: CostCode[];
+    result?: CostCode[];
 }
 
 /**
@@ -55,7 +55,7 @@ export class GetLaborCostCodes implements IActivityHandler {
         checkResponse(response);
         
         return {
-            codes: response.Value,
+            result: response.Value,
         };
     }
 }

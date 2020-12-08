@@ -37,7 +37,7 @@ describe("GetLaborCostCodes", () => {
         };
         const activity = new GetLaborCostCodes();
         const result = await activity.execute({ service: mockService, employeeSids: 1 });
-        expect(result.codes).toStrictEqual(codes);
+        expect(result.result).toStrictEqual(codes);
         expect(mockCall).toHaveBeenCalledWith({ EmployeeSids: [1] }, "Ams/LaborCost/CostCodes");
     });
     it("returns cost codes (multiple employeeSids)", async () => {
@@ -56,7 +56,7 @@ describe("GetLaborCostCodes", () => {
         };
         const activity = new GetLaborCostCodes();
         const result = await activity.execute({ service: mockService, employeeSids: [1, 2] });
-        expect(result.codes).toStrictEqual(codes);
+        expect(result.result).toStrictEqual(codes);
         expect(mockCall).toHaveBeenCalledWith({ EmployeeSids: [1, 2] }, "Ams/LaborCost/CostCodes");
     });
 });

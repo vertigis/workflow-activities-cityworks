@@ -32,7 +32,7 @@ export interface GetMaterialOutputs {
     /**
      * @description The list of Material.
      */
-    Material?: MaterialBase[];
+    result?: MaterialBase[];
 }
 
 /**
@@ -55,7 +55,7 @@ export class GetMaterial implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    Material: response.Value && [response.Value] || [],
+                    result: response.Value && [response.Value] || [],
                 };
             } else {
                 const response = await service.ByIds({
@@ -63,7 +63,7 @@ export class GetMaterial implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    Material: response.Value,
+                    result: response.Value,
                 };
             }
         } else if (inputs.storeroom) {
@@ -72,7 +72,7 @@ export class GetMaterial implements IActivityHandler {
             });
             checkResponse(response);
             return {
-                Material: response.Value,
+                result: response.Value,
             };
         } else {
             const response = await service.All({
@@ -80,7 +80,7 @@ export class GetMaterial implements IActivityHandler {
             });
             checkResponse(response);
             return {
-                Material: response.Value,
+                result: response.Value,
             };
         }
     }

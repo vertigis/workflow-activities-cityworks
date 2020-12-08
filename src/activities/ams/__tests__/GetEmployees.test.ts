@@ -28,8 +28,7 @@ describe("GetEmployees", () => {
         };
         const activity = new GetEmployees();
         const result = await activity.execute({ service: mockService, employeeSids: 1 });
-        expect(result.employee).toStrictEqual(employee);
-        expect(result.employees).toStrictEqual([employee]);
+        expect(result.result).toStrictEqual([employee]);
         expect(mockCall).toHaveBeenCalledWith({ EmployeeSid: 1 }, "Ams/Employee/ById");
     });
     it("searches by employeeSids (multiple)", async () => {
@@ -52,8 +51,7 @@ describe("GetEmployees", () => {
         };
         const activity = new GetEmployees();
         const result = await activity.execute({ service: mockService, employeeSids: [1, 2] });
-        expect(result.employee).toStrictEqual(employees[0]);
-        expect(result.employees).toStrictEqual(employees);
+        expect(result.result).toStrictEqual(employees);
         expect(mockCall).toHaveBeenCalledWith({ EmployeeSids: [1, 2] }, "Ams/Employee/ByIds");
     });
     it("searches by groupId", async () => {
@@ -76,8 +74,7 @@ describe("GetEmployees", () => {
         };
         const activity = new GetEmployees();
         const result = await activity.execute({ service: mockService, groupId: 7 });
-        expect(result.employee).toStrictEqual(employees[0]);
-        expect(result.employees).toStrictEqual(employees);
+        expect(result.result).toStrictEqual(employees);
         expect(mockCall).toHaveBeenCalledWith({ GroupId: 7 }, "Ams/Employee/ByGroupId");
     });
     it("searches all", async () => {
@@ -100,8 +97,7 @@ describe("GetEmployees", () => {
         };
         const activity = new GetEmployees();
         const result = await activity.execute({ service: mockService });
-        expect(result.employee).toStrictEqual(employees[0]);
-        expect(result.employees).toStrictEqual(employees);
+        expect(result.result).toStrictEqual(employees);
         expect(mockCall).toHaveBeenCalledWith({}, "Ams/Employee/All");
     });
 });

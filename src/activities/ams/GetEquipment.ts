@@ -28,7 +28,7 @@ export interface GetEquipmentOutputs {
     /**
      * @description The list of equipment.
      */
-    equipment?: EquipmentBase[];
+    result?: EquipmentBase[];
 }
 
 /**
@@ -51,7 +51,7 @@ export class GetEquipment implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    equipment: response.Value && [response.Value] || [],
+                    result: response.Value && [response.Value] || [],
                 };
             } else {
                 const response = await service.ByIds({
@@ -59,7 +59,7 @@ export class GetEquipment implements IActivityHandler {
                 });
                 checkResponse(response);
                 return {
-                    equipment: response.Value,
+                    result: response.Value,
                 };
             }
         } else {
@@ -68,7 +68,7 @@ export class GetEquipment implements IActivityHandler {
             });
             checkResponse(response);
             return {
-                equipment: response.Value,
+                result: response.Value,
             };
         }
     }
