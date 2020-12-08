@@ -1,5 +1,5 @@
 import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
-import { WorkOrderService } from "cw-sdk/api-service";
+import { WorkOrderTemplateService } from "cw-sdk/api-service";
 import { IApiService } from "cw-sdk/api-service/i-api-service";
 import { WOTemplateName } from "cw-sdk/core/types";
 import { checkResponse } from "../utils";
@@ -13,13 +13,27 @@ export interface GetWorkOrderTemplatesInputs {
      */
     service: IApiService;
     /**
-     * @description The entity type or types of the work order templates to find.
+     * @description The entity type or types of the templates to find.
      */
     entityTypes?: string | string[];
-
-    // CanCreate?: boolean;
-    // Category?: string;
-    // WOTemplateIds?: string[];
+    /**
+     * Whether to only return templates the user can create. The default is true.
+     */
+    onlyCanCreate?: boolean;
+    /**
+     * Whether to return all templates in the domain. The default is false.
+     */
+    allDomainTemplates?: boolean;
+    /**
+     * The category of the templates.
+     */
+    category?: string;
+    /**
+     * Select by template ID, ignores entity type parameters.
+     */
+    woTemplateIds?: string[];
+    maximumDateModified?: Date,
+    minimumDateModified?: Date,
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -40,14 +54,19 @@ export class GetWorkOrderTemplates implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.entityTypes) {
-            throw new Error("entityTypes is required");
+        if (!inputs.entityTypes && !inputs.allDomainTemplates) {
+            throw new Error("One of entityTypes or allDomainTemplates is required");
         }
 
-        const service = new WorkOrderService(inputs.service);
-        const response = await service.Templates({
-            EntityType: undefined as any,
-            EntityTypes: typeof inputs.entityTypes === "string" ? [inputs.entityTypes] : inputs.entityTypes,
+        const service = new WorkOrderTemplateService(inputs.service);
+        const response = await service.TemplateNames({
+            AllDomainTemplates: inputs.allDomainTemplates,
+            Category: inputs.category,
+            EntityTypes: typeof inputs.entityTypes === "string" ? [inputs.entityTypes] : inputs.entityTypes as string[],
+            MaximumDateModified: inputs.maximumDateModified,
+            MinimumDateModified: inputs.minimumDateModified,
+            OnlyCanCreate: inputs.onlyCanCreate,
+            WOTemplateIds: inputs.woTemplateIds,
         });
         checkResponse(response);
 
