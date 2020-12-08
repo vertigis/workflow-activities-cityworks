@@ -14,6 +14,7 @@ export * from "./activities/ams/GetInspections";
 export * from "./activities/ams/GetLaborCostCodes";
 export * from "./activities/ams/GetLaborJobCodes";
 export * from "./activities/ams/GetMaterial";
+export * from "./activities/ams/GetServiceRequestAttachments";
 export * from "./activities/ams/GetServiceRequestProblems";
 export * from "./activities/ams/GetServiceRequests";
 export * from "./activities/ams/GetUserPreferences";
