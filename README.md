@@ -1,4 +1,4 @@
-# Geometry Conversion Activities
+# Cityworks Activities
 
 [![CI/CD](https://github.com/geocortex/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-cityworks/actions) 
 [![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-cityworks)](https://www.npmjs.com/package/@geocortex/workflow-activities-cityworks)
