@@ -17,7 +17,7 @@ export interface CreateServiceRequestInputs {
      * @description The service request data.
      * @required
      */
-    serviceRequest: ServiceRequestServiceTypes.Requests.Create;
+    request: ServiceRequestServiceTypes.Requests.Create;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +37,13 @@ export class CreateServiceRequest implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.serviceRequest) {
-            throw new Error("serviceRequest is required");
+        if (!inputs.request) {
+            throw new Error("request is required");
         }
 
         const service = new ServiceRequestService(inputs.service);
 
-        const response = await service.Create(inputs.serviceRequest);
+        const response = await service.Create(inputs.request);
         checkResponse(response);
 
         return {

@@ -17,7 +17,7 @@ export interface UpdateServiceRequestInputs {
      * @description The service request data.
      * @required
      */
-    serviceRequest: ServiceRequestServiceTypes.Requests.Update;
+    request: ServiceRequestServiceTypes.Requests.Update;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +37,13 @@ export class UpdateServiceRequest implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.serviceRequest) {
-            throw new Error("serviceRequest is required");
+        if (!inputs.request) {
+            throw new Error("request is required");
         }
 
         const service = new ServiceRequestService(inputs.service);
 
-        const response = await service.Update(inputs.serviceRequest);
+        const response = await service.Update(inputs.request);
         checkResponse(response);
 
         return {
