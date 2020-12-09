@@ -1,4 +1,5 @@
 // Activities will be re-exported from this file.
+export * from "./activities/ams/AddComment";
 export * from "./activities/ams/AddInspectionAttachment";
 export * from "./activities/ams/AddServiceRequestAttachment";
 export * from "./activities/ams/AddWorkOrderAttachment";
@@ -15,6 +16,7 @@ export * from "./activities/ams/CreateWorkOrderFromInspection";
 export * from "./activities/ams/CreateWorkOrderFromParent";
 export * from "./activities/ams/CreateWorkOrderFromServiceRequest";
 export * from "./activities/ams/GetCodesByCodeType";
+export * from "./activities/ams/GetComments";
 export * from "./activities/ams/GetEmployees";
 export * from "./activities/ams/GetEntityGroups";
 export * from "./activities/ams/GetEntityTypes";
