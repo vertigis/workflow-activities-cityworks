@@ -15,6 +15,7 @@ export interface GetInspectionsInputs {
     /**
      * @displayName Inspection IDs
      * @description The ID or IDs of the inspections to find.
+     * @required
      */
     inspectionIds: number | number[];
 }
@@ -36,6 +37,9 @@ export class GetInspections implements IActivityHandler {
     async execute(inputs: GetInspectionsInputs): Promise<GetInspectionsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
+        }
+        if (!inputs.inspectionIds) {
+            throw new Error("inspectionIds is required");
         }
 
         const service = new InspectionService(inputs.service);

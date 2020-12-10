@@ -37,7 +37,6 @@ export interface GetServiceRequestTemplatesOutputs {
 }
 
 /**
- * @defaultName cwWorkOrderTemplates
  * @category Cityworks - AMS
  * @description Searches for Cityworks service request templates.
  */

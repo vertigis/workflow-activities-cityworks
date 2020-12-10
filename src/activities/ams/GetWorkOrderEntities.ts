@@ -5,7 +5,7 @@ import { WorkOrderEntity } from "cw-sdk/core/types";
 import { checkResponse } from "../utils";
 
 /** An interface that defines the inputs of the activity. */
-export interface GetGetWorkOrderEntitiesInputs {
+export interface GetWorkOrderEntitiesInputs {
     /**
      * @displayName API Service
      * @description The Cityworks API Service.
@@ -29,7 +29,7 @@ export interface GetGetWorkOrderEntitiesInputs {
 }
 
 /** An interface that defines the outputs of the activity. */
-export interface GetGetWorkOrderEntitiesOutputs {
+export interface GetWorkOrderEntitiesOutputs {
     /**
      * @description The list of work order entities.
      */
@@ -37,12 +37,11 @@ export interface GetGetWorkOrderEntitiesOutputs {
 }
 
 /**
- * @defaultName cwGetWorkOrderEntities
  * @category Cityworks - AMS
  * @description Gets the entities of a Cityworks work order.
  */
-export class GetGetWorkOrderEntities implements IActivityHandler {
-    async execute(inputs: GetGetWorkOrderEntitiesInputs): Promise<GetGetWorkOrderEntitiesOutputs> {
+export class GetWorkOrderEntities implements IActivityHandler {
+    async execute(inputs: GetWorkOrderEntitiesInputs): Promise<GetWorkOrderEntitiesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

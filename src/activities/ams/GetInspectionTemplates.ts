@@ -41,7 +41,7 @@ export interface GetInspectionTemplatesOutputs {
 }
 
 /**
- * @defaultName cwWorkOrderTemplates
+ * @defaultName cwInspectionTemplates
  * @category Cityworks - AMS
  * @description Searches for Cityworks inspection templates.
  */

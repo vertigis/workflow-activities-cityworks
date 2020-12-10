@@ -45,7 +45,6 @@ export interface GetWorkOrderTemplatesOutputs {
 }
 
 /**
- * @defaultName cwWorkOrderTemplates
  * @category Cityworks - AMS
  * @description Searches for Cityworks work order templates.
  */

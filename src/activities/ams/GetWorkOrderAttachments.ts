@@ -33,7 +33,6 @@ export interface GetWorkOrderAttachmentsOutputs {
 }
 
 /**
- * @defaultName cwWorkOrderAttachments
  * @category Cityworks - AMS
  * @description Gets Cityworks work order attachments.
  */

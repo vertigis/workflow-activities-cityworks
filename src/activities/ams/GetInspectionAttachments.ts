@@ -28,7 +28,6 @@ export interface GetInspectionAttachmentsOutputs {
 }
 
 /**
- * @defaultName cwInspectionAttachments
  * @category Cityworks - AMS
  * @description Gets Cityworks inspections attachments.
  */
