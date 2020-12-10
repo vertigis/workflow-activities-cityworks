@@ -14,10 +14,15 @@ export interface UpdateUpdateInspectionInputs {
      */
     service: IApiService;
     /**
-     * @description The inspection data.
+     * @displayName Inspection ID
+     * @description	The ID of the inspection.
      * @required
      */
-    inspection: InspectionServiceTypes.Requests.Update;
+    inspectionId: number;
+    /**
+     * @description Additional inspection options.
+     */
+    options: Omit<InspectionServiceTypes.Requests.Update, "InspectionId">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +42,16 @@ export class UpdateUpdateInspection implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.inspection) {
-            throw new Error("inspection is required");
+        if (!inputs.inspectionId) {
+            throw new Error("inspectionId is required");
         }
 
         const service = new InspectionService(inputs.service);
 
-        const response = await service.Update(inputs.inspection);
+        const response = await service.Update({
+            InspectionId: inputs.inspectionId,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {

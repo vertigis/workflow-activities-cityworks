@@ -14,10 +14,15 @@ export interface UpdateServiceRequestInputs {
      */
     service: IApiService;
     /**
-     * @description The service request data.
+     * @displayName Request ID
+     * @description	The ID of the service request.
      * @required
      */
-    request: ServiceRequestServiceTypes.Requests.Update;
+    requestId: number;
+    /**
+     * @description Additional service request options.
+     */
+    options: Omit<ServiceRequestServiceTypes.Requests.Update, "RequestId">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +42,16 @@ export class UpdateServiceRequest implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.request) {
-            throw new Error("request is required");
+        if (!inputs.requestId) {
+            throw new Error("requestId is required");
         }
 
         const service = new ServiceRequestService(inputs.service);
 
-        const response = await service.Update(inputs.request);
+        const response = await service.Update({
+            RequestId: inputs.requestId,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {

@@ -14,10 +14,27 @@ export interface CreateWorkOrderInputs {
      */
     service: IApiService;
     /**
-     * @description The work order data.
+     * @description	The ID of the work order template.
      * @required
      */
-    workOrder: WorkOrderServiceTypes.Requests.Create;
+    templateId: string;
+    /**
+     * @description	The entity type.
+     * @required
+     */
+    entityType: string;
+    /**
+     * @description	The X position of the work order.
+     */
+    x?: number;
+    /**
+     * @description	The Y position of the work order.
+     */
+    y?: number;
+    /**
+     * @description Additional work order options.
+     */
+    options: Omit<WorkOrderServiceTypes.Requests.Create, "EntityType" | "WOTemplateId">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +54,22 @@ export class CreateWorkOrder implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.workOrder) {
-            throw new Error("workOrder is required");
+        if (!inputs.entityType) {
+            throw new Error("entityType is required");
+        }
+        if (!inputs.templateId) {
+            throw new Error("templateId is required");
         }
 
         const service = new WorkOrderService(inputs.service);
 
-        const response = await service.Create(inputs.workOrder);
+        const response = await service.Create({
+            EntityType: inputs.entityType,
+            WOTemplateId: inputs.templateId,
+            X: inputs.x,
+            Y: inputs.y,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {

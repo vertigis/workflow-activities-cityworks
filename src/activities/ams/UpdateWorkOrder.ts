@@ -14,10 +14,15 @@ export interface UpdateWorkOrderInputs {
      */
     service: IApiService;
     /**
-     * @description The work order data.
+     * @displayName Work Order ID
+     * @description The ID or SID of the work order to add costs to.
      * @required
      */
-    workOrder: WorkOrderServiceTypes.Requests.Update;
+    workOrderId: string | number;
+    /**
+     * @description Additional work order options.
+     */
+    options: Omit<WorkOrderServiceTypes.Requests.Update, "WorkOrderId" | "WorkOrderSid">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +42,17 @@ export class UpdateWorkOrder implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.workOrder) {
-            throw new Error("workOrder is required");
+        if (!inputs.workOrderId) {
+            throw new Error("workOrderId is required");
         }
 
         const service = new WorkOrderService(inputs.service);
 
-        const response = await service.Update(inputs.workOrder);
+        const response = await service.Update({
+            WorkOrderId: typeof inputs.workOrderId === "string" ? inputs.workOrderId : undefined as any,
+            WorkOrderSid: typeof inputs.workOrderId === "number" ? inputs.workOrderId : undefined as any,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {

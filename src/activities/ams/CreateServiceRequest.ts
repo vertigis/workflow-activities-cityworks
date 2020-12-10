@@ -14,10 +14,23 @@ export interface CreateServiceRequestInputs {
      */
     service: IApiService;
     /**
-     * @description The service request data.
+     * @displayName Problem SID
+     * @description	The SID of the service request problem.
      * @required
      */
-    request: ServiceRequestServiceTypes.Requests.Create;
+    problemSid: number;
+    /**
+     * @description	The X position of the work order.
+     */
+    x?: number;
+    /**
+     * @description	The Y position of the work order.
+     */
+    y?: number;
+    /**
+     * @description Additional service request options.
+     */
+    options: Omit<ServiceRequestServiceTypes.Requests.Create, "ProblemSid">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +50,18 @@ export class CreateServiceRequest implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.request) {
-            throw new Error("request is required");
+        if (!inputs.problemSid) {
+            throw new Error("problemSid is required");
         }
 
         const service = new ServiceRequestService(inputs.service);
 
-        const response = await service.Create(inputs.request);
+        const response = await service.Create({
+            ProblemSid: inputs.problemSid,
+            X: inputs.x,
+            Y: inputs.y,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {

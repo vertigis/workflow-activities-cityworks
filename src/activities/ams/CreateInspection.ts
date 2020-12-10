@@ -14,10 +14,28 @@ export interface CreateInspectionInputs {
      */
     service: IApiService;
     /**
-     * @description The inspection data.
+     * @displayName Template ID
+     * @description	The ID of the inspection template.
      * @required
      */
-    inspection: InspectionServiceTypes.Requests.Create;
+    templateId: number;
+    /**
+     * @description	The entity type.
+     * @required
+     */
+    entityType: string;
+    /**
+     * @description	The X position of the work order.
+     */
+    x?: number;
+    /**
+     * @description	The Y position of the work order.
+     */
+    y?: number;
+    /**
+     * @description Additional inspection options.
+     */
+    options: Omit<InspectionServiceTypes.Requests.Create, "EntityType" | "InspTemplateId">;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -37,13 +55,22 @@ export class CreateInspection implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
-        if (!inputs.inspection) {
-            throw new Error("inspection is required");
+        if (!inputs.entityType) {
+            throw new Error("entityType is required");
+        }
+        if (!inputs.templateId) {
+            throw new Error("templateId is required");
         }
 
         const service = new InspectionService(inputs.service);
 
-        const response = await service.Create(inputs.inspection);
+        const response = await service.Create({
+            EntityType: inputs.entityType,
+            InspTemplateId: inputs.templateId,
+            X: inputs.x,
+            Y: inputs.y,
+            ...inputs.options,
+        });
         checkResponse(response);
 
         return {
