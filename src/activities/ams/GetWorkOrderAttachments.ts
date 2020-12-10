@@ -42,6 +42,9 @@ export class GetWorkOrderAttachments implements IActivityHandler {
         if (!inputs.service) {
             throw new Error("service is required");
         }
+        if (!inputs.workOrderIds && !inputs.workOrderSids) {
+            throw new Error("One of workOrderIds or workOrderSids is required");
+        }
 
         const service = new AttachmentsService(inputs.service);
 
