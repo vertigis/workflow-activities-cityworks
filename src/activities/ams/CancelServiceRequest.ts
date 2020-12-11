@@ -41,7 +41,9 @@ export interface CancelServiceRequestOutputs {
  * @description Cancels Cityworks service requests.
  */
 export class CancelServiceRequest implements IActivityHandler {
-    async execute(inputs: CancelServiceRequestInputs): Promise<CancelServiceRequestOutputs> {
+    async execute(
+        inputs: CancelServiceRequestInputs
+    ): Promise<CancelServiceRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -54,7 +56,10 @@ export class CancelServiceRequest implements IActivityHandler {
         const response = await service.Cancel({
             CancelReason: inputs.cancelReason,
             DateCancelled: inputs.dateCancelled,
-            RequestIds: typeof inputs.requestIds === "number" ? [inputs.requestIds] : inputs.requestIds,
+            RequestIds:
+                typeof inputs.requestIds === "number"
+                    ? [inputs.requestIds]
+                    : inputs.requestIds,
         });
         checkResponse(response);
 

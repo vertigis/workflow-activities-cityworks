@@ -47,11 +47,11 @@ export class GetEquipment implements IActivityHandler {
         if (inputs.equipmentSids) {
             if (typeof inputs.equipmentSids === "number") {
                 const response = await service.ById({
-                    EquipmentSid: inputs.equipmentSids
+                    EquipmentSid: inputs.equipmentSids,
                 });
                 checkResponse(response);
                 return {
-                    result: response.Value && [response.Value] || [],
+                    result: (response.Value && [response.Value]) || [],
                 };
             } else {
                 const response = await service.ByIds({

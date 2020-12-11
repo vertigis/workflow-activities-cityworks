@@ -34,7 +34,9 @@ export interface GetServiceRequestProblemsOutputs {
  * @description Gets a list of problems for a Cityworks service request.
  */
 export class GetServiceRequestProblems implements IActivityHandler {
-    async execute(inputs: GetServiceRequestProblemsInputs): Promise<GetServiceRequestProblemsOutputs> {
+    async execute(
+        inputs: GetServiceRequestProblemsInputs
+    ): Promise<GetServiceRequestProblemsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -42,7 +44,10 @@ export class GetServiceRequestProblems implements IActivityHandler {
         const service = new ServiceRequestService(inputs.service);
 
         const response = await service.Problems({
-            DomainIds: typeof inputs.domainIds === "number" ? [inputs.domainIds] : inputs.domainIds,
+            DomainIds:
+                typeof inputs.domainIds === "number"
+                    ? [inputs.domainIds]
+                    : inputs.domainIds,
             ForPublicOnly: inputs.forPublicOnly,
             OnlyActiveTemplates: inputs.onlyActiveTemplates,
         });

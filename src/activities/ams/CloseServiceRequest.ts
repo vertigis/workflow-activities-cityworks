@@ -33,7 +33,9 @@ export interface CloseServiceRequestOutputs {
  * @description Closes Cityworks service requests.
  */
 export class CloseServiceRequest implements IActivityHandler {
-    async execute(inputs: CloseServiceRequestInputs): Promise<CloseServiceRequestOutputs> {
+    async execute(
+        inputs: CloseServiceRequestInputs
+    ): Promise<CloseServiceRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -44,7 +46,10 @@ export class CloseServiceRequest implements IActivityHandler {
         const service = new ServiceRequestService(inputs.service);
 
         const response = await service.Close({
-            RequestIds: typeof inputs.requestIds === "number" ? [inputs.requestIds] : inputs.requestIds,
+            RequestIds:
+                typeof inputs.requestIds === "number"
+                    ? [inputs.requestIds]
+                    : inputs.requestIds,
         });
         checkResponse(response);
 

@@ -47,7 +47,9 @@ export interface AddWorkOrderMaterialCostsOutputs {
  * @description Add material costs to a Cityworks work order.
  */
 export class AddWorkOrderMaterialCosts implements IActivityHandler {
-    async execute(inputs: AddWorkOrderMaterialCostsInputs): Promise<AddWorkOrderMaterialCostsOutputs> {
+    async execute(
+        inputs: AddWorkOrderMaterialCostsInputs
+    ): Promise<AddWorkOrderMaterialCostsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -61,10 +63,19 @@ export class AddWorkOrderMaterialCosts implements IActivityHandler {
         const service = new MaterialCostService(inputs.service);
 
         const response = await service.AddWorkOrderCosts({
-            MaterialSids: typeof inputs.materialSid === "number" ? [inputs.materialSid] : inputs.materialSid,
+            MaterialSids:
+                typeof inputs.materialSid === "number"
+                    ? [inputs.materialSid]
+                    : inputs.materialSid,
             Units: inputs.units,
-            WorkOrderId: typeof inputs.workOrderId === "string" ? inputs.workOrderId : undefined as any,
-            WorkOrderSid: typeof inputs.workOrderId === "number" ? inputs.workOrderId : undefined as any,
+            WorkOrderId:
+                typeof inputs.workOrderId === "string"
+                    ? inputs.workOrderId
+                    : (undefined as any),
+            WorkOrderSid:
+                typeof inputs.workOrderId === "number"
+                    ? inputs.workOrderId
+                    : (undefined as any),
             ...inputs.costs,
         });
         checkResponse(response);

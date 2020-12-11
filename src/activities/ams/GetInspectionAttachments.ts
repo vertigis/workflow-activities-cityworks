@@ -32,7 +32,9 @@ export interface GetInspectionAttachmentsOutputs {
  * @description Gets Cityworks inspections attachments.
  */
 export class GetInspectionAttachments implements IActivityHandler {
-    async execute(inputs: GetInspectionAttachmentsInputs): Promise<GetInspectionAttachmentsOutputs> {
+    async execute(
+        inputs: GetInspectionAttachmentsInputs
+    ): Promise<GetInspectionAttachmentsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -40,7 +42,10 @@ export class GetInspectionAttachments implements IActivityHandler {
         const service = new AttachmentsService(inputs.service);
 
         const response = await service.InspectionAttachments({
-            InspectionIds: typeof inputs.inspectionIds === "number" ? [inputs.inspectionIds] : inputs.inspectionIds,
+            InspectionIds:
+                typeof inputs.inspectionIds === "number"
+                    ? [inputs.inspectionIds]
+                    : inputs.inspectionIds,
         });
         checkResponse(response);
 

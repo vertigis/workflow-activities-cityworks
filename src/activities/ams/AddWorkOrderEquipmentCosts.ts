@@ -50,7 +50,9 @@ export interface AddWorkOrderEquipmentCostsOutputs {
  * @description Add equipment costs to a Cityworks work order.
  */
 export class AddWorkOrderEquipmentCosts implements IActivityHandler {
-    async execute(inputs: AddWorkOrderEquipmentCostsInputs): Promise<AddWorkOrderEquipmentCostsOutputs> {
+    async execute(
+        inputs: AddWorkOrderEquipmentCostsInputs
+    ): Promise<AddWorkOrderEquipmentCostsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -61,11 +63,20 @@ export class AddWorkOrderEquipmentCosts implements IActivityHandler {
         const service = new EquipmentCostService(inputs.service);
 
         const response = await service.AddWorkOrderCosts({
-            EquipmentSids: typeof inputs.equipmentSid === "number" ? [inputs.equipmentSid] : inputs.equipmentSid,
+            EquipmentSids:
+                typeof inputs.equipmentSid === "number"
+                    ? [inputs.equipmentSid]
+                    : inputs.equipmentSid,
             Hours: inputs.hours,
             Units: inputs.units,
-            WorkOrderId: typeof inputs.workOrderId === "string" ? inputs.workOrderId : undefined as any,
-            WorkOrderSid: typeof inputs.workOrderId === "number" ? inputs.workOrderId : undefined as any,
+            WorkOrderId:
+                typeof inputs.workOrderId === "string"
+                    ? inputs.workOrderId
+                    : (undefined as any),
+            WorkOrderSid:
+                typeof inputs.workOrderId === "number"
+                    ? inputs.workOrderId
+                    : (undefined as any),
             ...inputs.costs,
         });
         checkResponse(response);

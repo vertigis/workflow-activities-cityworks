@@ -33,7 +33,9 @@ export interface GetServiceRequestsOutputs {
  * @description Searches for Cityworks service requests.
  */
 export class GetServiceRequests implements IActivityHandler {
-    async execute(inputs: GetServiceRequestsInputs): Promise<GetServiceRequestsOutputs> {
+    async execute(
+        inputs: GetServiceRequestsInputs
+    ): Promise<GetServiceRequestsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -42,11 +44,11 @@ export class GetServiceRequests implements IActivityHandler {
 
         if (typeof inputs.requestIds === "number") {
             const response = await service.ById({
-                RequestId: inputs.requestIds
+                RequestId: inputs.requestIds,
             });
             checkResponse(response);
             return {
-                result: response.Value && [response.Value] || [],
+                result: (response.Value && [response.Value]) || [],
             };
         } else {
             const response = await service.ByIds({

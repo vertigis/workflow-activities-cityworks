@@ -32,7 +32,9 @@ export interface GetCodesByCodeTypeOutputs {
  * @description Gets the list of Cityworks codes for the given code types.
  */
 export class GetCodesByCodeType implements IActivityHandler {
-    async execute(inputs: GetCodesByCodeTypeInputs): Promise<GetCodesByCodeTypeOutputs> {
+    async execute(
+        inputs: GetCodesByCodeTypeInputs
+    ): Promise<GetCodesByCodeTypeOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -40,7 +42,10 @@ export class GetCodesByCodeType implements IActivityHandler {
         const service = new CodesService(inputs.service);
 
         const response = await service.ByCodeType({
-            CodeTypes: typeof inputs.codeTypes === "string" ? [inputs.codeTypes] : inputs.codeTypes,
+            CodeTypes:
+                typeof inputs.codeTypes === "string"
+                    ? [inputs.codeTypes]
+                    : inputs.codeTypes,
         });
         checkResponse(response);
 

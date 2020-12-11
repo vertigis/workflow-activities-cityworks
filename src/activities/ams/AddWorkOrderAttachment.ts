@@ -55,7 +55,9 @@ export interface AddWorkOrderAttachmentOutputs {
  * @description Add an attachment to a Cityworks work order.
  */
 export class AddWorkOrderAttachment implements IActivityHandler {
-    async execute(inputs: AddWorkOrderAttachmentInputs): Promise<AddWorkOrderAttachmentOutputs> {
+    async execute(
+        inputs: AddWorkOrderAttachmentInputs
+    ): Promise<AddWorkOrderAttachmentOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -74,16 +76,21 @@ export class AddWorkOrderAttachment implements IActivityHandler {
             TaskId: inputs.taskId,
             Comments: inputs.comments,
             Filename: inputs.filename,
-        }
+        };
         const formData = new FormData();
         formData.set("token", inputs.service.getToken() || "");
         formData.set("file", inputs.file);
         formData.set("data", JSON.stringify(data));
-        const request = await fetch(`${(inputs.service as any)._baseUrl}Services/Ams/Attachments/AddWorkOrderAttachment`, {
-            method: "post",
-            body: formData,
-        });
-        const response = await request.json() as AttachmentsServiceTypes.Responses.AddWorkOrderAttachment;
+        const request = await fetch(
+            `${
+                (inputs.service as any)._baseUrl
+            }Services/Ams/Attachments/AddWorkOrderAttachment`,
+            {
+                method: "post",
+                body: formData,
+            }
+        );
+        const response = (await request.json()) as AttachmentsServiceTypes.Responses.AddWorkOrderAttachment;
         checkResponse(response);
 
         return {

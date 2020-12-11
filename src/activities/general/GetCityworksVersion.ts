@@ -27,12 +27,14 @@ export interface GetCityworksVersionOutputs {
  * @description Gets the version of the Cityworks service.
  */
 export class GetCityworksVersion implements IActivityHandler {
-    async execute(inputs: GetCityworksVersionInputs): Promise<GetCityworksVersionOutputs> {
+    async execute(
+        inputs: GetCityworksVersionInputs
+    ): Promise<GetCityworksVersionOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
 
-        const service = new AuthenticationService(inputs.service);        
+        const service = new AuthenticationService(inputs.service);
         const response = await service.Version({});
         checkResponse(response);
 

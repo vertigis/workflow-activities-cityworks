@@ -37,7 +37,9 @@ export interface GetWorkOrderAttachmentsOutputs {
  * @description Gets Cityworks work order attachments.
  */
 export class GetWorkOrderAttachments implements IActivityHandler {
-    async execute(inputs: GetWorkOrderAttachmentsInputs): Promise<GetWorkOrderAttachmentsOutputs> {
+    async execute(
+        inputs: GetWorkOrderAttachmentsInputs
+    ): Promise<GetWorkOrderAttachmentsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -47,8 +49,16 @@ export class GetWorkOrderAttachments implements IActivityHandler {
 
         const service = new AttachmentsService(inputs.service);
 
-        const workOrderIds: string[] = inputs.workOrderIds ? typeof inputs.workOrderIds === "string" ? [inputs.workOrderIds] : inputs.workOrderIds : undefined as any;
-        const workOrderSids: number[] = inputs.workOrderSids ? typeof inputs.workOrderSids === "number" ? [inputs.workOrderSids] : inputs.workOrderIds : undefined as any;
+        const workOrderIds: string[] = inputs.workOrderIds
+            ? typeof inputs.workOrderIds === "string"
+                ? [inputs.workOrderIds]
+                : inputs.workOrderIds
+            : (undefined as any);
+        const workOrderSids: number[] = inputs.workOrderSids
+            ? typeof inputs.workOrderSids === "number"
+                ? [inputs.workOrderSids]
+                : inputs.workOrderIds
+            : (undefined as any);
 
         const response = await service.WorkOrderAttachments({
             WorkOrderIds: workOrderIds,

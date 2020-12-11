@@ -26,7 +26,7 @@ export interface AddWorkOrderLaborCostsInputs {
     /**
      * @description	The employee SID or SIDs.
      */
-    employeeSid?: number | number[];    
+    employeeSid?: number | number[];
     /**
      * @description	The list of employee cost codes.
      */
@@ -55,7 +55,9 @@ export interface AddWorkOrderLaborCostsOutputs {
  * @description Add labor costs to a Cityworks work order.
  */
 export class AddWorkOrderLaborCosts implements IActivityHandler {
-    async execute(inputs: AddWorkOrderLaborCostsInputs): Promise<AddWorkOrderLaborCostsOutputs> {
+    async execute(
+        inputs: AddWorkOrderLaborCostsInputs
+    ): Promise<AddWorkOrderLaborCostsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -72,12 +74,27 @@ export class AddWorkOrderLaborCosts implements IActivityHandler {
         const service = new LaborCostService(inputs.service);
 
         const response = await service.AddWorkOrderCosts({
-            ContractorSids: typeof inputs.contractorSid === "number" ? [inputs.contractorSid] : inputs.contractorSid,
-            EmployeeCostCodes: typeof inputs.employeeCostCodes === "string" ? [inputs.employeeCostCodes] : inputs.employeeCostCodes,
-            EmployeeSids: typeof inputs.employeeSid === "number" ? [inputs.employeeSid] : inputs.employeeSid,
+            ContractorSids:
+                typeof inputs.contractorSid === "number"
+                    ? [inputs.contractorSid]
+                    : inputs.contractorSid,
+            EmployeeCostCodes:
+                typeof inputs.employeeCostCodes === "string"
+                    ? [inputs.employeeCostCodes]
+                    : inputs.employeeCostCodes,
+            EmployeeSids:
+                typeof inputs.employeeSid === "number"
+                    ? [inputs.employeeSid]
+                    : inputs.employeeSid,
             Hours: inputs.hours,
-            WorkOrderId: typeof inputs.workOrderId === "string" ? inputs.workOrderId : undefined as any,
-            WorkOrderSid: typeof inputs.workOrderId === "number" ? inputs.workOrderId : undefined as any,
+            WorkOrderId:
+                typeof inputs.workOrderId === "string"
+                    ? inputs.workOrderId
+                    : (undefined as any),
+            WorkOrderSid:
+                typeof inputs.workOrderId === "number"
+                    ? inputs.workOrderId
+                    : (undefined as any),
             ...inputs.costs,
         });
         checkResponse(response);

@@ -33,7 +33,9 @@ export interface CreateWorkOrderFromInspectionOutputs {
  * @description Create a Cityworks work order from an inspection.
  */
 export class CreateWorkOrderFromInspection implements IActivityHandler {
-    async execute(inputs: CreateWorkOrderFromInspectionInputs): Promise<CreateWorkOrderFromInspectionOutputs> {
+    async execute(
+        inputs: CreateWorkOrderFromInspectionInputs
+    ): Promise<CreateWorkOrderFromInspectionOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

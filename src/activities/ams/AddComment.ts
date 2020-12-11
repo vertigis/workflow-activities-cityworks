@@ -23,7 +23,16 @@ export interface AddCommentInputs {
      * @description The type of the activity.
      * @required
      */
-    activityType: CommentActivityType | "Unknown" | "Request" | "WorkOrder" | "CaTask" | "CaObject" | "CaCorrection" | "Project" | "Contract";
+    activityType:
+        | CommentActivityType
+        | "Unknown"
+        | "Request"
+        | "WorkOrder"
+        | "CaTask"
+        | "CaObject"
+        | "CaCorrection"
+        | "Project"
+        | "Contract";
     /**
      * @description The comment to add.
      * @required
@@ -62,7 +71,10 @@ export class AddComment implements IActivityHandler {
 
         const response = await service.Add({
             ActivitySid: inputs.activitySid,
-            ActivityType: typeof inputs.activityType === "string" ? CommentActivityType[inputs.activityType] : inputs.activityType,
+            ActivityType:
+                typeof inputs.activityType === "string"
+                    ? CommentActivityType[inputs.activityType]
+                    : inputs.activityType,
             Comments: inputs.comments,
         });
         checkResponse(response);

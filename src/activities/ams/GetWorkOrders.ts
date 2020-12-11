@@ -48,11 +48,11 @@ export class GetWorkOrders implements IActivityHandler {
         if (inputs.workOrderIds) {
             if (typeof inputs.workOrderIds === "string") {
                 const response = await service.ById({
-                    WorkOrderId: inputs.workOrderIds
+                    WorkOrderId: inputs.workOrderIds,
                 });
                 checkResponse(response);
                 return {
-                    result: response.Value && [response.Value] || [],
+                    result: (response.Value && [response.Value]) || [],
                 };
             } else {
                 const response = await service.ByIds({
@@ -66,11 +66,11 @@ export class GetWorkOrders implements IActivityHandler {
         } else if (inputs.workOrderSids) {
             if (typeof inputs.workOrderSids === "number") {
                 const response = await service.BySid({
-                    WorkOrderSid: inputs.workOrderSids
+                    WorkOrderSid: inputs.workOrderSids,
                 });
                 checkResponse(response);
                 return {
-                    result: response.Value && [response.Value] || [],
+                    result: (response.Value && [response.Value]) || [],
                 };
             } else {
                 const response = await service.BySids({
@@ -84,6 +84,6 @@ export class GetWorkOrders implements IActivityHandler {
         }
         return {
             result: [],
-        }
+        };
     }
 }

@@ -15,8 +15,8 @@ describe("GetCityworksVersion", () => {
             call: jest.fn(async () => {
                 return {
                     Status: CoreResponseStatus.Ok,
-                    Value: version
-                }
+                    Value: version,
+                };
             }),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),

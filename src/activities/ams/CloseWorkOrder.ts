@@ -33,7 +33,9 @@ export interface CloseWorkOrderOutputs {
  * @description Closes Cityworks work orders.
  */
 export class CloseWorkOrder implements IActivityHandler {
-    async execute(inputs: CloseWorkOrderInputs): Promise<CloseWorkOrderOutputs> {
+    async execute(
+        inputs: CloseWorkOrderInputs
+    ): Promise<CloseWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -44,7 +46,10 @@ export class CloseWorkOrder implements IActivityHandler {
         const service = new WorkOrderService(inputs.service);
 
         const response = await service.Close({
-            WorkOrderIds: typeof inputs.workOrderIds === "string" ? [inputs.workOrderIds] : inputs.workOrderIds,
+            WorkOrderIds:
+                typeof inputs.workOrderIds === "string"
+                    ? [inputs.workOrderIds]
+                    : inputs.workOrderIds,
         });
         checkResponse(response);
 

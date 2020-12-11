@@ -39,7 +39,9 @@ export interface CreateCityworksApiServiceOutputs {
  * @description Creates and initializes a Cityworks API Service that provides authentication and other services to all Cityworks activities.
  */
 export class CreateCityworksApiService implements IActivityHandler {
-    async execute(inputs: CreateCityworksApiServiceInputs): Promise<CreateCityworksApiServiceOutputs> {
+    async execute(
+        inputs: CreateCityworksApiServiceInputs
+    ): Promise<CreateCityworksApiServiceOutputs> {
         if (!inputs.url) {
             throw new Error("url is required");
         }
@@ -51,7 +53,10 @@ export class CreateCityworksApiService implements IActivityHandler {
         } else if (inputs.username && inputs.password) {
             // Login with the username and password
             service = new ApiService(inputs.url);
-            const response = await service.login(inputs.username, inputs.password);
+            const response = await service.login(
+                inputs.username,
+                inputs.password
+            );
             checkResponse(response, "Failed to authenticate with Cityworks.");
         } else {
             // Use the CSRF token

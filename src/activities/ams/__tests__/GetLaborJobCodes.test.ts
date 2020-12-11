@@ -15,8 +15,8 @@ describe("GetLaborJobCodes", () => {
             call: jest.fn(async () => {
                 return {
                     Status: CoreResponseStatus.Ok,
-                    Value: codes
-                }
+                    Value: codes,
+                };
             }),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),

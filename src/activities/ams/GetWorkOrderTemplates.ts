@@ -32,8 +32,8 @@ export interface GetWorkOrderTemplatesInputs {
      * Select by template ID, ignores entity type parameters.
      */
     woTemplateIds?: string[];
-    maximumDateModified?: Date,
-    minimumDateModified?: Date,
+    maximumDateModified?: Date;
+    minimumDateModified?: Date;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -49,19 +49,26 @@ export interface GetWorkOrderTemplatesOutputs {
  * @description Searches for Cityworks work order templates.
  */
 export class GetWorkOrderTemplates implements IActivityHandler {
-    async execute(inputs: GetWorkOrderTemplatesInputs): Promise<GetWorkOrderTemplatesOutputs> {
+    async execute(
+        inputs: GetWorkOrderTemplatesInputs
+    ): Promise<GetWorkOrderTemplatesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
         if (!inputs.entityTypes && !inputs.allDomainTemplates) {
-            throw new Error("One of entityTypes or allDomainTemplates is required");
+            throw new Error(
+                "One of entityTypes or allDomainTemplates is required"
+            );
         }
 
         const service = new WorkOrderTemplateService(inputs.service);
         const response = await service.TemplateNames({
             AllDomainTemplates: inputs.allDomainTemplates,
             Category: inputs.category,
-            EntityTypes: typeof inputs.entityTypes === "string" ? [inputs.entityTypes] : inputs.entityTypes as string[],
+            EntityTypes:
+                typeof inputs.entityTypes === "string"
+                    ? [inputs.entityTypes]
+                    : (inputs.entityTypes as string[]),
             MaximumDateModified: inputs.maximumDateModified,
             MinimumDateModified: inputs.minimumDateModified,
             OnlyCanCreate: inputs.onlyCanCreate,

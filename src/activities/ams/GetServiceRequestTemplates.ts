@@ -11,7 +11,7 @@ export interface GetServiceRequestTemplatesInputs {
      * @description The Cityworks API Service.
      * @required
      */
-    service: IApiService;   
+    service: IApiService;
     /**
      * @description The ID or IDs of the templates to find.
      */
@@ -24,8 +24,8 @@ export interface GetServiceRequestTemplatesInputs {
      * Whether to return inactive templates. The default is false.
      */
     includeInactive?: boolean;
-    maximumDateModified?: Date,
-    minimumDateModified?: Date,
+    maximumDateModified?: Date;
+    minimumDateModified?: Date;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -41,7 +41,9 @@ export interface GetServiceRequestTemplatesOutputs {
  * @description Searches for Cityworks service request templates.
  */
 export class GetServiceRequestTemplates implements IActivityHandler {
-    async execute(inputs: GetServiceRequestTemplatesInputs): Promise<GetServiceRequestTemplatesOutputs> {
+    async execute(
+        inputs: GetServiceRequestTemplatesInputs
+    ): Promise<GetServiceRequestTemplatesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -52,7 +54,10 @@ export class GetServiceRequestTemplates implements IActivityHandler {
             IncludeInactive: inputs.includeInactive,
             MaximumDateModified: inputs.maximumDateModified,
             MinimumDateModified: inputs.minimumDateModified,
-            TemplateIds: typeof inputs.templateIds === "number" ? [inputs.templateIds] : inputs.templateIds,
+            TemplateIds:
+                typeof inputs.templateIds === "number"
+                    ? [inputs.templateIds]
+                    : inputs.templateIds,
         });
         checkResponse(response);
 

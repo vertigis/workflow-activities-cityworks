@@ -5,7 +5,10 @@ import { CoreResponseStatus, ServiceTypes } from "cw-sdk/core";
  * @param response The response to check
  * @param message An optional message
  */
-export function checkResponse(response: ServiceTypes.CoreResponseBase, message?: string): void {
+export function checkResponse(
+    response: ServiceTypes.CoreResponseBase,
+    message?: string
+): void {
     if (response.Status !== CoreResponseStatus.Ok) {
         throw new CityworksRequestError(response, message);
     }

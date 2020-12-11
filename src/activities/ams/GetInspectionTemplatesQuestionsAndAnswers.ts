@@ -32,8 +32,11 @@ export interface GetInspectionTemplatesQuestionsAndAnswersOutputs {
  * @category Cityworks - AMS
  * @description Gets the questions and answers for a Cityworks inspection template.
  */
-export class GetInspectionTemplatesQuestionsAndAnswers implements IActivityHandler {
-    async execute(inputs: GetInspectionTemplatesQuestionsAndAnswersInputs): Promise<GetInspectionTemplatesQuestionsAndAnswersOutputs> {
+export class GetInspectionTemplatesQuestionsAndAnswers
+    implements IActivityHandler {
+    async execute(
+        inputs: GetInspectionTemplatesQuestionsAndAnswersInputs
+    ): Promise<GetInspectionTemplatesQuestionsAndAnswersOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -43,7 +46,10 @@ export class GetInspectionTemplatesQuestionsAndAnswers implements IActivityHandl
 
         const service = new InspectionTemplateService(inputs.service);
         const response = await service.QA({
-            InspTemplateIds: typeof inputs.templateIds === "number" ? [inputs.templateIds] : inputs.templateIds,
+            InspTemplateIds:
+                typeof inputs.templateIds === "number"
+                    ? [inputs.templateIds]
+                    : inputs.templateIds,
         });
         checkResponse(response);
 

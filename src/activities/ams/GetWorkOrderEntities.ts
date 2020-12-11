@@ -41,7 +41,9 @@ export interface GetWorkOrderEntitiesOutputs {
  * @description Gets the entities of a Cityworks work order.
  */
 export class GetWorkOrderEntities implements IActivityHandler {
-    async execute(inputs: GetWorkOrderEntitiesInputs): Promise<GetWorkOrderEntitiesOutputs> {
+    async execute(
+        inputs: GetWorkOrderEntitiesInputs
+    ): Promise<GetWorkOrderEntitiesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -52,8 +54,14 @@ export class GetWorkOrderEntities implements IActivityHandler {
         const service = new WorkOrderService(inputs.service);
 
         const response = await service.Entities({
-            WorkOrderIds: typeof inputs.workOrderIds === "string" ? [inputs.workOrderIds] : inputs.workOrderIds,
-            WorkOrderSids: typeof inputs.workOrderSids === "number" ? [inputs.workOrderSids] : inputs.workOrderSids,
+            WorkOrderIds:
+                typeof inputs.workOrderIds === "string"
+                    ? [inputs.workOrderIds]
+                    : inputs.workOrderIds,
+            WorkOrderSids:
+                typeof inputs.workOrderSids === "number"
+                    ? [inputs.workOrderSids]
+                    : inputs.workOrderSids,
             GetGisData: inputs.getGisData,
         });
         checkResponse(response);

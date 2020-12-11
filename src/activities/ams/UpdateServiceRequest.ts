@@ -38,7 +38,9 @@ export interface UpdateServiceRequestOutputs {
  * @description Update a Cityworks service request.
  */
 export class UpdateServiceRequest implements IActivityHandler {
-    async execute(inputs: UpdateServiceRequestInputs): Promise<UpdateServiceRequestOutputs> {
+    async execute(
+        inputs: UpdateServiceRequestInputs
+    ): Promise<UpdateServiceRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

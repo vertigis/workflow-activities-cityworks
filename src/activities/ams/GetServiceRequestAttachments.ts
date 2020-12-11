@@ -33,7 +33,9 @@ export interface GetServiceRequestAttachmentsOutputs {
  * @description Get the attachments of a Cityworks service request.
  */
 export class GetServiceRequestAttachments implements IActivityHandler {
-    async execute(inputs: GetServiceRequestAttachmentsInputs): Promise<GetServiceRequestAttachmentsOutputs> {
+    async execute(
+        inputs: GetServiceRequestAttachmentsInputs
+    ): Promise<GetServiceRequestAttachmentsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -44,7 +46,10 @@ export class GetServiceRequestAttachments implements IActivityHandler {
         const service = new AttachmentsService(inputs.service);
 
         const response = await service.RequestAttachments({
-            RequestIds: typeof inputs.requestId === "number" ? [inputs.requestId] : inputs.requestId,
+            RequestIds:
+                typeof inputs.requestId === "number"
+                    ? [inputs.requestId]
+                    : inputs.requestId,
         });
         checkResponse(response);
 

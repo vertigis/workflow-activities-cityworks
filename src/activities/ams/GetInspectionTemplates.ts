@@ -15,7 +15,7 @@ export interface GetInspectionTemplatesInputs {
     /**
      * @description The entity type or types of the templates to find.
      */
-    entityTypes?: string | string[];    
+    entityTypes?: string | string[];
     /**
      * @description The ID or IDs of the templates to find.
      */
@@ -28,8 +28,8 @@ export interface GetInspectionTemplatesInputs {
      * Whether to return inactive templates. The default is false.
      */
     includeInactive?: boolean;
-    maximumDateModified?: Date,
-    minimumDateModified?: Date,
+    maximumDateModified?: Date;
+    minimumDateModified?: Date;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -46,7 +46,9 @@ export interface GetInspectionTemplatesOutputs {
  * @description Searches for Cityworks inspection templates.
  */
 export class GetInspectionTemplates implements IActivityHandler {
-    async execute(inputs: GetInspectionTemplatesInputs): Promise<GetInspectionTemplatesOutputs> {
+    async execute(
+        inputs: GetInspectionTemplatesInputs
+    ): Promise<GetInspectionTemplatesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -54,11 +56,17 @@ export class GetInspectionTemplates implements IActivityHandler {
         const service = new InspectionTemplateService(inputs.service);
         const response = await service.Templates({
             CanCreate: inputs.canCreate,
-            EntityTypes: typeof inputs.entityTypes === "string" ? [inputs.entityTypes] : inputs.entityTypes,
+            EntityTypes:
+                typeof inputs.entityTypes === "string"
+                    ? [inputs.entityTypes]
+                    : inputs.entityTypes,
             IncludeInactive: inputs.includeInactive,
             MaximumDateModified: inputs.maximumDateModified,
             MinimumDateModified: inputs.minimumDateModified,
-            TemplateIds: typeof inputs.templateIds === "number" ? [inputs.templateIds] : inputs.templateIds,
+            TemplateIds:
+                typeof inputs.templateIds === "number"
+                    ? [inputs.templateIds]
+                    : inputs.templateIds,
         });
         checkResponse(response);
 

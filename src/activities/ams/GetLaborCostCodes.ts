@@ -39,7 +39,9 @@ export interface GetLaborCostCodesOutputs {
  * @description Gets the Cityworks labor cost codes.
  */
 export class GetLaborCostCodes implements IActivityHandler {
-    async execute(inputs: GetLaborCostCodesInputs): Promise<GetLaborCostCodesOutputs> {
+    async execute(
+        inputs: GetLaborCostCodesInputs
+    ): Promise<GetLaborCostCodesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -50,10 +52,13 @@ export class GetLaborCostCodes implements IActivityHandler {
         const service = new LaborCostService(inputs.service);
         const response = await service.CostCodes({
             CommonCodesOnly: inputs.commonCodesOnly,
-            EmployeeSids: typeof inputs.employeeSids === "number" ? [inputs.employeeSids] : inputs.employeeSids,
-        })
+            EmployeeSids:
+                typeof inputs.employeeSids === "number"
+                    ? [inputs.employeeSids]
+                    : inputs.employeeSids,
+        });
         checkResponse(response);
-        
+
         return {
             result: response.Value,
         };

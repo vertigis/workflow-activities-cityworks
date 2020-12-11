@@ -33,7 +33,9 @@ export interface GetEntityGroupsOutputs {
  * @description Gets the Cityworks entity groups.
  */
 export class GetEntityGroups implements IActivityHandler {
-    async execute(inputs: GetEntityGroupsInputs): Promise<GetEntityGroupsOutputs> {
+    async execute(
+        inputs: GetEntityGroupsInputs
+    ): Promise<GetEntityGroupsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

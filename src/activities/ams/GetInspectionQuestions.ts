@@ -33,7 +33,9 @@ export interface GetInspectionQuestionsOutputs {
  * @description Gets the questions for a Cityworks inspection.
  */
 export class GetInspectionQuestions implements IActivityHandler {
-    async execute(inputs: GetInspectionQuestionsInputs): Promise<GetInspectionQuestionsOutputs> {
+    async execute(
+        inputs: GetInspectionQuestionsInputs
+    ): Promise<GetInspectionQuestionsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -44,8 +46,14 @@ export class GetInspectionQuestions implements IActivityHandler {
         const service = new InspectionService(inputs.service);
 
         const response = await service.Questions({
-            InspectionId: typeof inputs.inspectionIds === "number" ? inputs.inspectionIds : undefined as any,
-            InspectionIds: typeof inputs.inspectionIds !== "number" ? inputs.inspectionIds : undefined as any
+            InspectionId:
+                typeof inputs.inspectionIds === "number"
+                    ? inputs.inspectionIds
+                    : (undefined as any),
+            InspectionIds:
+                typeof inputs.inspectionIds !== "number"
+                    ? inputs.inspectionIds
+                    : (undefined as any),
         });
         checkResponse(response);
         return {

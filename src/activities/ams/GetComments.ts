@@ -23,7 +23,16 @@ export interface GetCommentsInputs {
      * @description The type of the activity.
      * @required
      */
-    activityType: CommentActivityType | "Unknown" | "Request" | "WorkOrder" | "CaTask" | "CaObject" | "CaCorrection" | "Project" | "Contract";
+    activityType:
+        | CommentActivityType
+        | "Unknown"
+        | "Request"
+        | "WorkOrder"
+        | "CaTask"
+        | "CaObject"
+        | "CaCorrection"
+        | "Project"
+        | "Contract";
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -32,8 +41,8 @@ export interface GetCommentsOutputs {
      * @description The comments.
      */
     result?: {
-        [activitySid: number]: CommentRecord[]
-    }
+        [activitySid: number]: CommentRecord[];
+    };
 }
 
 /**
@@ -55,8 +64,14 @@ export class GetComments implements IActivityHandler {
         const service = new CommentService(inputs.service);
 
         const response = await service.ByActivitySids({
-            ActivitySids: typeof inputs.activitySid === "number" ? [inputs.activitySid] : inputs.activitySid,
-            ActivityType: typeof inputs.activityType === "string" ? CommentActivityType[inputs.activityType] : inputs.activityType,
+            ActivitySids:
+                typeof inputs.activitySid === "number"
+                    ? [inputs.activitySid]
+                    : inputs.activitySid,
+            ActivityType:
+                typeof inputs.activityType === "string"
+                    ? CommentActivityType[inputs.activityType]
+                    : inputs.activityType,
         });
         checkResponse(response);
 

@@ -39,7 +39,9 @@ export interface GetWorkOrderLaborCostsOutputs {
  * @description Get labor costs of a Cityworks work order.
  */
 export class GetWorkOrderLaborCosts implements IActivityHandler {
-    async execute(inputs: GetWorkOrderLaborCostsInputs): Promise<GetWorkOrderLaborCostsOutputs> {
+    async execute(
+        inputs: GetWorkOrderLaborCostsInputs
+    ): Promise<GetWorkOrderLaborCostsOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -49,8 +51,16 @@ export class GetWorkOrderLaborCosts implements IActivityHandler {
 
         const service = new LaborCostService(inputs.service);
 
-        const workOrderIds: string[] = inputs.workOrderIds ? typeof inputs.workOrderIds === "string" ? [inputs.workOrderIds] : inputs.workOrderIds : undefined as any;
-        const workOrderSids: number[] = inputs.workOrderSids ? typeof inputs.workOrderSids === "number" ? [inputs.workOrderSids] : inputs.workOrderIds : undefined as any;
+        const workOrderIds: string[] = inputs.workOrderIds
+            ? typeof inputs.workOrderIds === "string"
+                ? [inputs.workOrderIds]
+                : inputs.workOrderIds
+            : (undefined as any);
+        const workOrderSids: number[] = inputs.workOrderSids
+            ? typeof inputs.workOrderSids === "number"
+                ? [inputs.workOrderSids]
+                : inputs.workOrderIds
+            : (undefined as any);
 
         const response = await service.WorkOrderCostsByWorkOrder({
             Estimated: inputs.estimated,

@@ -37,7 +37,9 @@ export interface GetUserPreferencesOutputs {
  */
 export class GetUserPreferences implements IActivityHandler {
     /** Perform the execution logic of the activity. */
-    async execute(inputs: GetUserPreferencesInputs): Promise<GetUserPreferencesOutputs> {
+    async execute(
+        inputs: GetUserPreferencesInputs
+    ): Promise<GetUserPreferencesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

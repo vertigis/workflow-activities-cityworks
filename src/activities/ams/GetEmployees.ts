@@ -52,11 +52,11 @@ export class GetEmployees implements IActivityHandler {
         if (inputs.employeeSids) {
             if (typeof inputs.employeeSids === "number") {
                 const response = await service.ById({
-                    EmployeeSid: inputs.employeeSids
+                    EmployeeSid: inputs.employeeSids,
                 });
                 checkResponse(response);
                 return {
-                    result: response.Value && [response.Value] || [],
+                    result: (response.Value && [response.Value]) || [],
                 };
             } else {
                 const response = await service.ByIds({

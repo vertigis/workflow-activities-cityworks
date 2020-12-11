@@ -34,7 +34,10 @@ export interface CreateWorkOrderInputs {
     /**
      * @description Additional work order options.
      */
-    options: Omit<WorkOrderServiceTypes.Requests.Create, "EntityType" | "WOTemplateId">;
+    options: Omit<
+        WorkOrderServiceTypes.Requests.Create,
+        "EntityType" | "WOTemplateId"
+    >;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -50,7 +53,9 @@ export interface CreateWorkOrderOutputs {
  * @description Create a Cityworks work order.
  */
 export class CreateWorkOrder implements IActivityHandler {
-    async execute(inputs: CreateWorkOrderInputs): Promise<CreateWorkOrderOutputs> {
+    async execute(
+        inputs: CreateWorkOrderInputs
+    ): Promise<CreateWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

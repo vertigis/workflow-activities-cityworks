@@ -33,7 +33,9 @@ export interface CloseInspectionOutputs {
  * @description Closes Cityworks inspections.
  */
 export class CloseInspection implements IActivityHandler {
-    async execute(inputs: CloseInspectionInputs): Promise<CloseInspectionOutputs> {
+    async execute(
+        inputs: CloseInspectionInputs
+    ): Promise<CloseInspectionOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -44,7 +46,10 @@ export class CloseInspection implements IActivityHandler {
         const service = new InspectionService(inputs.service);
 
         const response = await service.Close({
-            InspectionIds: typeof inputs.inspectionIds === "number" ? [inputs.inspectionIds] : inputs.inspectionIds,
+            InspectionIds:
+                typeof inputs.inspectionIds === "number"
+                    ? [inputs.inspectionIds]
+                    : inputs.inspectionIds,
         });
         checkResponse(response);
 

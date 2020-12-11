@@ -17,8 +17,8 @@ describe("GetCityworksUser", () => {
             call: jest.fn(async () => {
                 return {
                     Status: CoreResponseStatus.Ok,
-                    Value: user
-                }
+                    Value: user,
+                };
             }),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),

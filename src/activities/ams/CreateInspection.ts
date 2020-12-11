@@ -35,7 +35,10 @@ export interface CreateInspectionInputs {
     /**
      * @description Additional inspection options.
      */
-    options: Omit<InspectionServiceTypes.Requests.Create, "EntityType" | "InspTemplateId">;
+    options: Omit<
+        InspectionServiceTypes.Requests.Create,
+        "EntityType" | "InspTemplateId"
+    >;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -51,7 +54,9 @@ export interface CreateInspectionOutputs {
  * @description Create a Cityworks inspection.
  */
 export class CreateInspection implements IActivityHandler {
-    async execute(inputs: CreateInspectionInputs): Promise<CreateInspectionOutputs> {
+    async execute(
+        inputs: CreateInspectionInputs
+    ): Promise<CreateInspectionOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

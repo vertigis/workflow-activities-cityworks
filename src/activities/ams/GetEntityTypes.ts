@@ -40,7 +40,9 @@ export interface GetEntityTypesOutputs {
  * @description Gets the Cityworks entity types.
  */
 export class GetEntityTypes implements IActivityHandler {
-    async execute(inputs: GetEntityTypesInputs): Promise<GetEntityTypesOutputs> {
+    async execute(
+        inputs: GetEntityTypesInputs
+    ): Promise<GetEntityTypesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -51,8 +53,16 @@ export class GetEntityTypes implements IActivityHandler {
         const eService = new EntityService(inputs.service);
         const response = await eService.Types({
             EntityGroup: undefined as any,
-            EntityGroups: typeof inputs.entityGroups === "string" ? [inputs.entityGroups] : inputs.entityGroups,
-            EntityTableTypes: typeof inputs.entityTableTypes === "number" ? [inputs.entityTableTypes] : (inputs.entityTableTypes ? inputs.entityTableTypes : undefined),
+            EntityGroups:
+                typeof inputs.entityGroups === "string"
+                    ? [inputs.entityGroups]
+                    : inputs.entityGroups,
+            EntityTableTypes:
+                typeof inputs.entityTableTypes === "number"
+                    ? [inputs.entityTableTypes]
+                    : inputs.entityTableTypes
+                    ? inputs.entityTableTypes
+                    : undefined,
         });
         checkResponse(response);
 

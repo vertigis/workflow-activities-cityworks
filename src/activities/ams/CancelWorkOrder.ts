@@ -41,7 +41,9 @@ export interface CancelWorkOrderOutputs {
  * @description Cancels Cityworks work orders.
  */
 export class CancelWorkOrder implements IActivityHandler {
-    async execute(inputs: CancelWorkOrderInputs): Promise<CancelWorkOrderOutputs> {
+    async execute(
+        inputs: CancelWorkOrderInputs
+    ): Promise<CancelWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -54,7 +56,10 @@ export class CancelWorkOrder implements IActivityHandler {
         const response = await service.Cancel({
             CancelReason: inputs.cancelReason,
             DateCancelled: inputs.dateCancelled,
-            WorkOrderIds: typeof inputs.workOrderIds === "string" ? [inputs.workOrderIds] : inputs.workOrderIds,
+            WorkOrderIds:
+                typeof inputs.workOrderIds === "string"
+                    ? [inputs.workOrderIds]
+                    : inputs.workOrderIds,
         });
         checkResponse(response);
 

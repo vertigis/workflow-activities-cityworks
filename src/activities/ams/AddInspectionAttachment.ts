@@ -49,7 +49,9 @@ export interface AddInspectionAttachmentOutputs {
  * @description Add an attachment to a Cityworks inspection.
  */
 export class AddInspectionAttachment implements IActivityHandler {
-    async execute(inputs: AddInspectionAttachmentInputs): Promise<AddInspectionAttachmentOutputs> {
+    async execute(
+        inputs: AddInspectionAttachmentInputs
+    ): Promise<AddInspectionAttachmentOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -67,16 +69,21 @@ export class AddInspectionAttachment implements IActivityHandler {
             Comments: inputs.comments,
             Filename: inputs.filename,
             AttachmentType: inputs.attachmentType,
-        }
+        };
         const formData = new FormData();
         formData.set("token", inputs.service.getToken() || "");
         formData.set("file", inputs.file);
         formData.set("data", JSON.stringify(data));
-        const request = await fetch(`${(inputs.service as any)._baseUrl}Services/Ams/Attachments/AddInspectionAttachment`, {
-            method: "post",
-            body: formData,
-        });
-        const response = await request.json() as AttachmentsServiceTypes.Responses.AddInspectionAttachment;
+        const request = await fetch(
+            `${
+                (inputs.service as any)._baseUrl
+            }Services/Ams/Attachments/AddInspectionAttachment`,
+            {
+                method: "post",
+                body: formData,
+            }
+        );
+        const response = (await request.json()) as AttachmentsServiceTypes.Responses.AddInspectionAttachment;
         checkResponse(response);
 
         return {

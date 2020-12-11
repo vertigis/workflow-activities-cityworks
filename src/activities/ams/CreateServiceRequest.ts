@@ -46,7 +46,9 @@ export interface CreateServiceRequestOutputs {
  * @description Create a Cityworks service request.
  */
 export class CreateServiceRequest implements IActivityHandler {
-    async execute(inputs: CreateServiceRequestInputs): Promise<CreateServiceRequestOutputs> {
+    async execute(
+        inputs: CreateServiceRequestInputs
+    ): Promise<CreateServiceRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }

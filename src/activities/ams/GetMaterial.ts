@@ -51,11 +51,11 @@ export class GetMaterial implements IActivityHandler {
         if (inputs.MaterialSids) {
             if (typeof inputs.MaterialSids === "number") {
                 const response = await service.ById({
-                    MaterialSid: inputs.MaterialSids
+                    MaterialSid: inputs.MaterialSids,
                 });
                 checkResponse(response);
                 return {
-                    result: response.Value && [response.Value] || [],
+                    result: (response.Value && [response.Value]) || [],
                 };
             } else {
                 const response = await service.ByIds({

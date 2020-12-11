@@ -28,14 +28,16 @@ export interface GetLaborJobCodesOutputs {
  * @description Gets the Cityworks labor job codes.
  */
 export class GetLaborJobCodes implements IActivityHandler {
-    async execute(inputs: GetLaborJobCodesInputs): Promise<GetLaborJobCodesOutputs> {
+    async execute(
+        inputs: GetLaborJobCodesInputs
+    ): Promise<GetLaborJobCodesOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
         const lcService = new LaborCostService(inputs.service);
         const response = await lcService.JobCodes({});
         checkResponse(response);
-        
+
         return {
             result: response.Value,
         };

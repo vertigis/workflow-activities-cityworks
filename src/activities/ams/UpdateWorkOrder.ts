@@ -22,7 +22,10 @@ export interface UpdateWorkOrderInputs {
     /**
      * @description Additional work order options.
      */
-    options: Omit<WorkOrderServiceTypes.Requests.Update, "WorkOrderId" | "WorkOrderSid">;
+    options: Omit<
+        WorkOrderServiceTypes.Requests.Update,
+        "WorkOrderId" | "WorkOrderSid"
+    >;
 }
 
 /** An interface that defines the outputs of the activity. */
@@ -38,7 +41,9 @@ export interface UpdateWorkOrderOutputs {
  * @description Update a Cityworks work order.
  */
 export class UpdateWorkOrder implements IActivityHandler {
-    async execute(inputs: UpdateWorkOrderInputs): Promise<UpdateWorkOrderOutputs> {
+    async execute(
+        inputs: UpdateWorkOrderInputs
+    ): Promise<UpdateWorkOrderOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
@@ -49,8 +54,14 @@ export class UpdateWorkOrder implements IActivityHandler {
         const service = new WorkOrderService(inputs.service);
 
         const response = await service.Update({
-            WorkOrderId: typeof inputs.workOrderId === "string" ? inputs.workOrderId : undefined as any,
-            WorkOrderSid: typeof inputs.workOrderId === "number" ? inputs.workOrderId : undefined as any,
+            WorkOrderId:
+                typeof inputs.workOrderId === "string"
+                    ? inputs.workOrderId
+                    : (undefined as any),
+            WorkOrderSid:
+                typeof inputs.workOrderId === "number"
+                    ? inputs.workOrderId
+                    : (undefined as any),
             ...inputs.options,
         });
         checkResponse(response);

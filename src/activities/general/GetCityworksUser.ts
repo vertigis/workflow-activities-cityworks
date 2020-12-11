@@ -32,7 +32,9 @@ export interface GetCityworksUserOutputs {
  * @description Gets information about a Cityworks user.
  */
 export class GetCityworksUser implements IActivityHandler {
-    async execute(inputs: GetCityworksUserInputs): Promise<GetCityworksUserOutputs> {
+    async execute(
+        inputs: GetCityworksUserInputs
+    ): Promise<GetCityworksUserOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
