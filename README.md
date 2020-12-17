@@ -1,6 +1,6 @@
 # Cityworks Activities
 
-[![CI/CD](https://github.com/geocortex/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-cityworks/actions) 
+[![CI/CD](https://github.com/geocortex/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-cityworks/actions)
 [![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-cityworks)](https://www.npmjs.com/package/@geocortex/workflow-activities-cityworks)
 
 This project contains activities for interacting with the Cityworks REST API in a [Geocortex Workflow](https://www.geocortex.com/products/geocortex-workflow/).
@@ -9,19 +9,39 @@ This project uses version `15.6.1` of the Cityworks TypeScript SDK.
 
 ## Usage
 
-To use this activity pack in [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) you need to register it as an activity pack.
+To use the Cityworks activities in [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/) you need to register an activity pack and then add the activities to a workflow.
+
+### Register the Cityworks activity pack
+
 1. Sign in to ArcGIS Online or Portal for ArcGIS
 1. Go to **My Content**
 1. Select **Add Item > An application**
-   - Type: `Web Mapping`
-   - Purpose: `Ready To Use`
-   - API: `JavaScript`
-   - URL: The URL to this activity pack manifest
-     - Use https://unpkg.com/@geocortex/workflow-activities-cityworks/activitypack.json for the latest version
-     - Use https://unpkg.com/@geocortex/workflow-activities-cityworks@0.1.0/activitypack.json for a specific version
-   - Title: Your desired title
-   - Tags: Must include `geocortex-workflow-activity-pack`
+    - Type: `Web Mapping`
+    - Purpose: `Ready To Use`
+    - API: `JavaScript`
+    - URL: The URL to this activity pack manifest
+        - Use https://unpkg.com/@geocortex/workflow-activities-cityworks/activitypack.json for the latest version
+        - Use https://unpkg.com/@geocortex/workflow-activities-cityworks@0.1.0/activitypack.json for a specific version
+    - Title: Your desired title
+    - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/)
+1. The Cityworks activities will now appear in the activity toolbox in various `Cityworks` categories
+
+### Use the Cityworks activities in a workflow
+
+1. Establish a connection to the Cityworks service
+    1. Add the `Create Cityworks API Service` activity to a workflow
+    1. Set the `URL` input to the root URL of your Cityworks server. For example, `https://cloud01.cityworks.com/<organization>`.
+    1. If you have an existing Cityworks access token, assign it to the `Token` input
+    1. If you have a username and password, assign them to the `Username` and `Password` inputs
+    - **IMPORTANT:** tokens and passwords are credentials that should not be hard coded into workflows. These values should be acquired by the workflow at runtime from the end user or from another secure system.
+1. Use the Cityworks service
+    1. Add one of the other Cityworks activities to the workflow. For example, `Get Service Requests`.
+    1. Set the `Service` input of the activity to be the output of the `Create Cityworks API Service` activity
+        - Typically this would use an expression like `=$cwApi.service`
+    1. Supply any additional inputs to the activity
+    1. Supply the `result` output of the activity to the inputs of other activities in the workflow
+1. Run the workflow
 
 ## Development
 
