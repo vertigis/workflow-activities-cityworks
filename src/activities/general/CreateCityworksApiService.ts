@@ -27,7 +27,7 @@ export interface CreateCityworksApiServiceInputs {
 /** An interface that defines the outputs of the activity. */
 export interface CreateCityworksApiServiceOutputs {
     /**
-     * @description The initialized Cityworks API service.
+     * @description The initialized Cityworks API service that can be supplied to other Cityworks activities.
      */
     service?: IApiService;
 }
