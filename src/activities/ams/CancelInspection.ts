@@ -7,7 +7,6 @@ import { checkResponse } from "../utils";
 /** An interface that defines the inputs of the activity. */
 export interface CancelInspectionInputs {
     /**
-     * @displayName API Service
      * @description The Cityworks API Service.
      * @required
      */
