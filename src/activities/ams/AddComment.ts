@@ -50,6 +50,8 @@ export interface AddCommentOutputs {
 /**
  * @category Cityworks - AMS
  * @description Add a comment to a Cityworks activity.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class AddComment implements IActivityHandler {
     async execute(inputs: AddCommentInputs): Promise<AddCommentOutputs> {

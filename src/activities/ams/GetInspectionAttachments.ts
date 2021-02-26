@@ -29,6 +29,8 @@ export interface GetInspectionAttachmentsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Gets Cityworks inspections attachments.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetInspectionAttachments implements IActivityHandler {
     async execute(

@@ -30,6 +30,8 @@ export interface GetServiceRequestsOutputs {
  * @defaultName cwServiceRequests
  * @category Cityworks - AMS
  * @description Searches for Cityworks service requests.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetServiceRequests implements IActivityHandler {
     async execute(

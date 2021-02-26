@@ -30,6 +30,8 @@ export interface CloseServiceRequestOutputs {
 /**
  * @category Cityworks - AMS
  * @description Closes Cityworks service requests.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CloseServiceRequest implements IActivityHandler {
     async execute(

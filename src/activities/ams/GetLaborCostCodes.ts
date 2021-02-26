@@ -36,6 +36,8 @@ export interface GetLaborCostCodesOutputs {
  * @category Cityworks - AMS
  * @defaultName cwCostCodes
  * @description Gets the Cityworks labor cost codes.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetLaborCostCodes implements IActivityHandler {
     async execute(

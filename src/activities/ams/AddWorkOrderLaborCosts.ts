@@ -52,6 +52,8 @@ export interface AddWorkOrderLaborCostsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Add labor costs to a Cityworks work order.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class AddWorkOrderLaborCosts implements IActivityHandler {
     async execute(

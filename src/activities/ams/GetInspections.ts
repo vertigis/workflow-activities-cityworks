@@ -31,6 +31,8 @@ export interface GetInspectionsOutputs {
  * @defaultName cwInspections
  * @category Cityworks - AMS
  * @description Searches for Cityworks inspections.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetInspections implements IActivityHandler {
     async execute(

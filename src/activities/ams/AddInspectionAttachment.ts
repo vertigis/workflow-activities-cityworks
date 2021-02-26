@@ -46,6 +46,8 @@ export interface AddInspectionAttachmentOutputs {
 /**
  * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks inspection.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class AddInspectionAttachment implements IActivityHandler {
     async execute(

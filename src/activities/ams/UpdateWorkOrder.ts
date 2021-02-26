@@ -38,6 +38,8 @@ export interface UpdateWorkOrderOutputs {
 /**
  * @category Cityworks - AMS
  * @description Update a Cityworks work order.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class UpdateWorkOrder implements IActivityHandler {
     async execute(

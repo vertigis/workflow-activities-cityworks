@@ -30,6 +30,8 @@ export interface GetInspectionQuestionsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Gets the questions for a Cityworks inspection.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetInspectionQuestions implements IActivityHandler {
     async execute(

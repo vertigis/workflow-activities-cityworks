@@ -35,6 +35,8 @@ export interface UpdateUpdateInspectionOutputs {
 /**
  * @category Cityworks - AMS
  * @description Update a Cityworks inspection.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class UpdateUpdateInspection implements IActivityHandler {
     async execute(

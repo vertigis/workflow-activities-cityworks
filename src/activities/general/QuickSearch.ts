@@ -30,6 +30,8 @@ export interface QuickSearchOutputs {
 /**
  * @category Cityworks - General
  * @description Wildcard search for Inspections, Permits, Work Orders and Service Requests.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class QuickSearch implements IActivityHandler {
     async execute(inputs: QuickSearchInputs): Promise<QuickSearchOutputs> {

@@ -29,6 +29,8 @@ export interface GetCityworksUserOutputs {
  * @category Cityworks - General
  * @defaultName cwUser
  * @description Gets information about a Cityworks user.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetCityworksUser implements IActivityHandler {
     async execute(

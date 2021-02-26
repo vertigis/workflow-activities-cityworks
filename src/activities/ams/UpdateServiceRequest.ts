@@ -35,6 +35,8 @@ export interface UpdateServiceRequestOutputs {
 /**
  * @category Cityworks - AMS
  * @description Update a Cityworks service request.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class UpdateServiceRequest implements IActivityHandler {
     async execute(

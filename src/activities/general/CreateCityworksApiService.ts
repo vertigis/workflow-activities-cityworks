@@ -37,6 +37,8 @@ export interface CreateCityworksApiServiceOutputs {
  * @category Cityworks - General
  * @defaultName cwApi
  * @description Creates and initializes a Cityworks API Service that provides authentication and other services to all Cityworks activities.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CreateCityworksApiService implements IActivityHandler {
     async execute(

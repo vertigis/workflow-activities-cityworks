@@ -52,6 +52,8 @@ export interface AddWorkOrderAttachmentOutputs {
 /**
  * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks work order.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class AddWorkOrderAttachment implements IActivityHandler {
     async execute(

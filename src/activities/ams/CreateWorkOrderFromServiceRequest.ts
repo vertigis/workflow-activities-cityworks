@@ -30,6 +30,8 @@ export interface CreateWorkOrderFromServiceRequestOutputs {
 /**
  * @category Cityworks - AMS
  * @description Create a Cityworks work order from a service request.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CreateWorkOrderFromServiceRequest implements IActivityHandler {
     async execute(

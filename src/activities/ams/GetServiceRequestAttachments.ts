@@ -30,6 +30,8 @@ export interface GetServiceRequestAttachmentsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Get the attachments of a Cityworks service request.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetServiceRequestAttachments implements IActivityHandler {
     async execute(

@@ -46,6 +46,8 @@ export interface GetWorkOrderTemplatesOutputs {
 /**
  * @category Cityworks - AMS
  * @description Searches for Cityworks work order templates.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetWorkOrderTemplates implements IActivityHandler {
     async execute(

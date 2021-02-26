@@ -50,6 +50,8 @@ export interface CreateWorkOrderOutputs {
 /**
  * @category Cityworks - AMS
  * @description Create a Cityworks work order.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CreateWorkOrder implements IActivityHandler {
     async execute(

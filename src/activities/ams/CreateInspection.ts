@@ -51,6 +51,8 @@ export interface CreateInspectionOutputs {
 /**
  * @category Cityworks - AMS
  * @description Create a Cityworks inspection.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CreateInspection implements IActivityHandler {
     async execute(

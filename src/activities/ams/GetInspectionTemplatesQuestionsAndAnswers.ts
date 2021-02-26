@@ -30,6 +30,8 @@ export interface GetInspectionTemplatesQuestionsAndAnswersOutputs {
  * @defaultName cwInspectionTemplatesQA
  * @category Cityworks - AMS
  * @description Gets the questions and answers for a Cityworks inspection template.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetInspectionTemplatesQuestionsAndAnswers
     implements IActivityHandler {

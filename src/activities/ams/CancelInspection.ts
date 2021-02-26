@@ -38,6 +38,8 @@ export interface CancelInspectionOutputs {
 /**
  * @category Cityworks - AMS
  * @description Cancels Cityworks inspections.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CancelInspection implements IActivityHandler {
     async execute(

@@ -36,6 +36,8 @@ export interface GetWorkOrderEquipmentCostsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Get equipment costs of a Cityworks work order.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetWorkOrderEquipmentCosts implements IActivityHandler {
     async execute(

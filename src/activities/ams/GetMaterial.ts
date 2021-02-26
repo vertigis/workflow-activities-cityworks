@@ -38,6 +38,8 @@ export interface GetMaterialOutputs {
  * @category Cityworks - AMS
  * @defaultName cwMaterial
  * @description Searches for Cityworks material.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetMaterial implements IActivityHandler {
     async execute(inputs: GetMaterialInputs): Promise<GetMaterialOutputs> {

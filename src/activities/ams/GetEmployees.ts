@@ -39,6 +39,8 @@ export interface GetEmployeesOutputs {
  * @category Cityworks - AMS
  * @defaultName cwEmployees
  * @description Searches for Cityworks employees.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetEmployees implements IActivityHandler {
     async execute(inputs: GetEmployeesInputs): Promise<GetEmployeesOutputs> {

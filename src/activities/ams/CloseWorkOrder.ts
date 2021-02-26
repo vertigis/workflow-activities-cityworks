@@ -30,6 +30,8 @@ export interface CloseWorkOrderOutputs {
 /**
  * @category Cityworks - AMS
  * @description Closes Cityworks work orders.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CloseWorkOrder implements IActivityHandler {
     async execute(

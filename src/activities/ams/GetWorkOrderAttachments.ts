@@ -34,6 +34,8 @@ export interface GetWorkOrderAttachmentsOutputs {
 /**
  * @category Cityworks - AMS
  * @description Gets Cityworks work order attachments.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetWorkOrderAttachments implements IActivityHandler {
     async execute(

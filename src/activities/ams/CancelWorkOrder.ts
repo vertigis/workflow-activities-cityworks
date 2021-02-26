@@ -38,6 +38,8 @@ export interface CancelWorkOrderOutputs {
 /**
  * @category Cityworks - AMS
  * @description Cancels Cityworks work orders.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CancelWorkOrder implements IActivityHandler {
     async execute(

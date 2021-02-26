@@ -24,6 +24,8 @@ export interface GetCityworksVersionOutputs {
  * @category Cityworks - General
  * @defaultName cwVersion
  * @description Gets the version of the Cityworks service.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetCityworksVersion implements IActivityHandler {
     async execute(

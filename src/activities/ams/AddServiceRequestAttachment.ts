@@ -43,6 +43,8 @@ export interface AddServiceRequestAttachmentOutputs {
 /**
  * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks service request.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class AddServiceRequestAttachment implements IActivityHandler {
     async execute(

@@ -883,6 +883,8 @@ export interface UseCityworksServiceOutputs {
  * @category Cityworks - General
  * @defaultName cwService
  * @description Utility activity to generically access any Cityworks REST API operation.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class UseCityworksService implements IActivityHandler {
     async execute(

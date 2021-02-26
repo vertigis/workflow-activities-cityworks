@@ -25,6 +25,8 @@ export interface GetLaborJobCodesOutputs {
  * @category Cityworks - AMS
  * @defaultName cwJobCodes
  * @description Gets the Cityworks labor job codes.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class GetLaborJobCodes implements IActivityHandler {
     async execute(

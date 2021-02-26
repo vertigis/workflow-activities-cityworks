@@ -30,6 +30,8 @@ export interface CreateWorkOrderFromInspectionOutputs {
 /**
  * @category Cityworks - AMS
  * @description Create a Cityworks work order from an inspection.
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 export class CreateWorkOrderFromInspection implements IActivityHandler {
     async execute(
