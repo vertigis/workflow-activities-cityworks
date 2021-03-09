@@ -3,23 +3,23 @@ import { CoreResponseStatus, CWUser } from "cw-sdk/core";
 import { GetCityworksUser } from "../GetCityworksUser";
 
 describe("GetCityworksUser", () => {
-    it("throws if service input is missing", () => {
+    it("throws if service input is missing", async () => {
         const activity = new GetCityworksUser();
-        expect(activity.execute({ service: undefined as any })).rejects.toThrow(
-            "service is required"
-        );
+        await expect(
+            activity.execute({ service: undefined as any })
+        ).rejects.toThrow("service is required");
     });
     it("returns a user", async () => {
         const user: CWUser = {
             LoginName: "bobby",
         };
         const mockService: IApiService = {
-            call: jest.fn(async () => {
-                return {
+            call: jest.fn(() =>
+                Promise.resolve({
                     Status: CoreResponseStatus.Ok,
                     Value: user,
-                };
-            }),
+                })
+            ),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),
             login: jest.fn(),

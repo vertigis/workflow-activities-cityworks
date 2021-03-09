@@ -11,9 +11,9 @@ beforeEach(() => {
 });
 
 describe("CreateCityworksApiService", () => {
-    it("throws if url input is missing", () => {
+    it("throws if url input is missing", async () => {
         const activity = new CreateCityworksApiService();
-        expect(activity.execute({ url: "" })).rejects.toThrow(
+        await expect(activity.execute({ url: "" })).rejects.toThrow(
             "url is required"
         );
     });
@@ -27,20 +27,19 @@ describe("CreateCityworksApiService", () => {
         expect(ApiService).toHaveBeenCalledWith("https://server/", "foo");
     });
     it("initializes with credentials", async () => {
+        const mockLogin = jest.fn(() =>
+            Promise.resolve<AuthenticationServiceTypes.Responses.Authenticate>({
+                Status: ServiceTypes.CoreResponseStatus.Ok,
+                Value: {
+                    Token: "token",
+                },
+            })
+        );
         const mockApiService: IApiService = {
             call: jest.fn(),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),
-            login: jest.fn(() =>
-                Promise.resolve<AuthenticationServiceTypes.Responses.Authenticate>(
-                    {
-                        Status: ServiceTypes.CoreResponseStatus.Ok,
-                        Value: {
-                            Token: "token",
-                        },
-                    }
-                )
-            ),
+            login: mockLogin,
         };
         (ApiService as jest.Mock<ApiService>).mockImplementation(
             () => mockApiService as any
@@ -54,13 +53,14 @@ describe("CreateCityworksApiService", () => {
         });
         expect(result.service).toBeDefined();
         expect(ApiService).toHaveBeenCalledWith("https://server/");
-        expect(mockApiService.login).toHaveBeenCalledWith("user", "secret");
+        expect(mockLogin).toHaveBeenCalledWith("user", "secret");
     });
     it("initializes with CSRF when there are no inputs", async () => {
+        const mockInitializeCsrfToken = jest.fn();
         const mockApiService: IApiService = {
             call: jest.fn(),
             getToken: jest.fn(),
-            initializeCsrfToken: jest.fn(),
+            initializeCsrfToken: mockInitializeCsrfToken,
             login: jest.fn(),
         };
         (ApiService as jest.Mock<ApiService>).mockImplementation(
@@ -71,6 +71,6 @@ describe("CreateCityworksApiService", () => {
         const result = await activity.execute({ url: "https://server/" });
         expect(result.service).toBeDefined();
         expect(ApiService).toHaveBeenCalledWith("https://server/");
-        expect(mockApiService.initializeCsrfToken).toHaveBeenCalledWith();
+        expect(mockInitializeCsrfToken).toHaveBeenCalledWith();
     });
 });

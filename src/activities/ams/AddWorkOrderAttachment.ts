@@ -82,10 +82,11 @@ export class AddWorkOrderAttachment implements IActivityHandler {
         formData.set("token", inputs.service.getToken() || "");
         formData.set("file", inputs.file);
         formData.set("data", JSON.stringify(data));
+
+        const baseUrl: string = (inputs.service as any)._baseUrl;
+
         const request = await fetch(
-            `${
-                (inputs.service as any)._baseUrl
-            }Services/Ams/Attachments/AddWorkOrderAttachment`,
+            `${baseUrl}Services/Ams/Attachments/AddWorkOrderAttachment`,
             {
                 method: "post",
                 body: formData,

@@ -4,22 +4,22 @@ import { EmployeeBase } from "cw-sdk/core/types";
 import { GetEmployees } from "../GetEmployees";
 
 describe("GetEmployees", () => {
-    it("throws if service input is missing", () => {
+    it("throws if service input is missing", async () => {
         const activity = new GetEmployees();
-        expect(activity.execute({ service: undefined as any })).rejects.toThrow(
-            "service is required"
-        );
+        await expect(
+            activity.execute({ service: undefined as any })
+        ).rejects.toThrow("service is required");
     });
     it("searches by employeeSids (single)", async () => {
         const employee: EmployeeBase = {
             LoginName: "bobby",
         };
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: employee,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),
@@ -46,12 +46,12 @@ describe("GetEmployees", () => {
                 LoginName: "billy",
             },
         ];
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: employees,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),
@@ -78,12 +78,12 @@ describe("GetEmployees", () => {
                 LoginName: "billy",
             },
         ];
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: employees,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),
@@ -110,12 +110,12 @@ describe("GetEmployees", () => {
                 LoginName: "billy",
             },
         ];
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: employees,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),

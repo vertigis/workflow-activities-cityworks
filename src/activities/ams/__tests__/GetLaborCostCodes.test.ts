@@ -3,16 +3,16 @@ import { CoreResponseStatus, CostCode } from "cw-sdk/core";
 import { GetLaborCostCodes } from "../GetLaborCostCodes";
 
 describe("GetLaborCostCodes", () => {
-    it("throws if service input is missing", () => {
+    it("throws if service input is missing", async () => {
         const activity = new GetLaborCostCodes();
-        expect(
+        await expect(
             activity.execute({
                 service: undefined as any,
                 employeeSids: [1, 2],
             })
         ).rejects.toThrow("service is required");
     });
-    it("throws if employeeSids input is missing", () => {
+    it("throws if employeeSids input is missing", async () => {
         const mockService: IApiService = {
             call: jest.fn(),
             getToken: jest.fn(),
@@ -20,7 +20,7 @@ describe("GetLaborCostCodes", () => {
             login: jest.fn(),
         };
         const activity = new GetLaborCostCodes();
-        expect(
+        await expect(
             activity.execute({
                 service: mockService,
                 employeeSids: undefined as any,
@@ -29,12 +29,12 @@ describe("GetLaborCostCodes", () => {
     });
     it("returns cost codes (single employeeSids)", async () => {
         const codes: CostCode[] = [{ Code: "1" }, { Code: "2" }];
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: codes,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),
@@ -54,12 +54,12 @@ describe("GetLaborCostCodes", () => {
     });
     it("returns cost codes (multiple employeeSids)", async () => {
         const codes: CostCode[] = [{ Code: "1" }, { Code: "2" }];
-        const mockCall = jest.fn(async (data: any, path: string) => {
-            return {
+        const mockCall = jest.fn(() =>
+            Promise.resolve({
                 Status: CoreResponseStatus.Ok,
                 Value: codes,
-            };
-        });
+            })
+        );
         const mockService: IApiService = {
             call: mockCall,
             getToken: jest.fn(),

@@ -71,10 +71,11 @@ export class AddServiceRequestAttachment implements IActivityHandler {
         formData.set("token", inputs.service.getToken() || "");
         formData.set("file", inputs.file);
         formData.set("data", JSON.stringify(data));
+
+        const baseUrl: string = (inputs.service as any)._baseUrl;
+
         const request = await fetch(
-            `${
-                (inputs.service as any)._baseUrl
-            }Services/Ams/Attachments/AddRequestAttachment`,
+            `${baseUrl}Services/Ams/Attachments/AddRequestAttachment`,
             {
                 method: "post",
                 body: formData,

@@ -3,21 +3,21 @@ import { CoreResponseStatus, JobCode } from "cw-sdk/core";
 import { GetLaborJobCodes } from "../GetLaborJobCodes";
 
 describe("GetLaborJobCodes", () => {
-    it("throws if service input is missing", () => {
+    it("throws if service input is missing", async () => {
         const activity = new GetLaborJobCodes();
-        expect(activity.execute({ service: undefined as any })).rejects.toThrow(
-            "service is required"
-        );
+        await expect(
+            activity.execute({ service: undefined as any })
+        ).rejects.toThrow("service is required");
     });
     it("returns job codes", async () => {
         const codes: JobCode[] = [{ Code: "1" }, { Code: "2" }];
         const mockService: IApiService = {
-            call: jest.fn(async () => {
-                return {
+            call: jest.fn(() =>
+                Promise.resolve({
                     Status: CoreResponseStatus.Ok,
                     Value: codes,
-                };
-            }),
+                })
+            ),
             getToken: jest.fn(),
             initializeCsrfToken: jest.fn(),
             login: jest.fn(),
