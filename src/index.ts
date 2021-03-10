@@ -51,4 +51,4 @@ export * from "./activities/general/CreateCityworksApiService";
 export * from "./activities/general/GetCityworksUser";
 export * from "./activities/general/GetCityworksVersion";
 export * from "./activities/general/QuickSearch";
-export * from "./activities/UseCityworksService";
+export * from "./activities/SendCityworksRequest";

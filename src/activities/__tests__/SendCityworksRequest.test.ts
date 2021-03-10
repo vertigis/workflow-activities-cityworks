@@ -1,10 +1,10 @@
 import { IApiService } from "cw-sdk/api-service/i-api-service";
 import { CoreResponseStatus } from "cw-sdk/core";
-import { UseCityworksService } from "../UseCityworksService";
+import { SendCityworksRequest } from "../SendCityworksRequest";
 
-describe("UseCityworksService", () => {
+describe("SendCityworksRequest", () => {
     it("throws if service input is missing", async () => {
-        const activity = new UseCityworksService();
+        const activity = new SendCityworksRequest();
         await expect(
             activity.execute({
                 service: undefined as any,
@@ -13,7 +13,7 @@ describe("UseCityworksService", () => {
         ).rejects.toThrow("service is required");
     });
     it("throws if path input is missing", async () => {
-        const activity = new UseCityworksService();
+        const activity = new SendCityworksRequest();
         await expect(
             activity.execute({ service: {} as any, path: "" })
         ).rejects.toThrow("path is required");
@@ -34,7 +34,7 @@ describe("UseCityworksService", () => {
             initializeCsrfToken: jest.fn(),
             login: jest.fn(),
         };
-        const activity = new UseCityworksService();
+        const activity = new SendCityworksRequest();
 
         let result = await activity.execute({
             service: mockService,

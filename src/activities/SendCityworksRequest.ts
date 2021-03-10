@@ -4,7 +4,7 @@ import { ServiceTypes } from "cw-sdk/core";
 import { checkResponse } from "./utils";
 
 /** An interface that defines the inputs of the activity. */
-export interface UseCityworksServiceInputs {
+export interface SendCityworksRequestInputs {
     /**
      * @description The Cityworks API Service.
      * @required
@@ -872,7 +872,7 @@ export interface UseCityworksServiceInputs {
 }
 
 /** An interface that defines the outputs of the activity. */
-export interface UseCityworksServiceOutputs {
+export interface SendCityworksRequestOutputs {
     /**
      * @description The result of the service operation.
      */
@@ -881,15 +881,15 @@ export interface UseCityworksServiceOutputs {
 
 /**
  * @category Cityworks - General
- * @defaultName cwService
+ * @defaultName cwRequest
  * @description Utility activity to generically access any Cityworks REST API operation.
  * @clientOnly
  * @unsupportedApps GMV
  */
-export class UseCityworksService implements IActivityHandler {
+export class SendCityworksRequest implements IActivityHandler {
     async execute(
-        inputs: UseCityworksServiceInputs
-    ): Promise<UseCityworksServiceOutputs> {
+        inputs: SendCityworksRequestInputs
+    ): Promise<SendCityworksRequestOutputs> {
         if (!inputs.service) {
             throw new Error("service is required");
         }
