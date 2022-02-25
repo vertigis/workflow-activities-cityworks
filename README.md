@@ -5,7 +5,7 @@
 
 This project contains activities for interacting with the Cityworks REST API in a [VertiGIS Studio Workflow](https://www.vertigisstudio.com/products/vertigis-studio-workflow/).
 
-This project uses version `15.6.1` of the Cityworks TypeScript SDK.
+This project uses version `15.6.1` of the Cityworks TypeScript SDK. To use this activity pack you must have a license to use the Cityworks REST API.
 
 ## Usage
 
