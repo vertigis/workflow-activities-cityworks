@@ -25,7 +25,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "cw-sdk": "file:./cw-sdk"
+        "cw-sdk": "file:./cw-sdk-15.6.1.tgz"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
