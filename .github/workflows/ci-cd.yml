@@ -60,6 +60,8 @@ jobs:
 
     #         - run: cp LICENSE package.json README.md build
 
+    #         - run: cp ./node_modules/cw-sdk/LICENSE build/CITYWORKS-LICENSE
+
     #         - name: Release 🚀
     #           env:
     #               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
