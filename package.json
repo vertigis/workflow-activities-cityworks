@@ -1,5 +1,5 @@
 {
-    "name": "@geocortex/workflow-activities-cityworks",
+    "name": "@vertigis/workflow-activities-cityworks",
     "version": "0.0.0-semantically-released",
     "description": "VertiGIS Studio Workflow activities for Cityworks",
     "repository": {
