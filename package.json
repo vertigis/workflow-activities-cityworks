@@ -4,11 +4,11 @@
     "description": "VertiGIS Studio Workflow activities for Cityworks",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/geocortex/workflow-activities-cityworks.git"
+        "url": "git+https://github.com/vertigis/workflow-activities-cityworks.git"
     },
     "license": "MIT",
     "author": "VertiGIS",
-    "homepage": "https://github.com/geocortex/workflow-activities-cityworks#readme",
+    "homepage": "https://github.com/vertigis/workflow-activities-cityworks#readme",
     "keywords": [
         "VertiGIS",
         "VertiGIS Studio",
@@ -25,13 +25,13 @@
         "test": "jest"
     },
     "dependencies": {
-        "cw-sdk": "file:./cw-sdk-15.6.1.tgz"
+        "cw-sdk": "file:./cw-sdk-15.8.3.tgz"
     },
     "devDependencies": {
         "@babel/core": "^7.18.5",
         "@babel/preset-env": "^7.18.2",
         "@babel/preset-typescript": "^7.17.12",
-        "@geocortex/workflow": "5.27.1",
+        "@geocortex/workflow": "5.30.1",
         "@types/jest": "^28.1.3",
         "@vertigis/workflow-sdk": "2.0.5",
         "babel-jest": "^28.1.1",
@@ -41,7 +41,7 @@
         "jest": "^28.1.1",
         "prettier": "^2.7.1",
         "pretty-quick": "^3.1.3",
-        "typescript": "^4.7.4"
+        "typescript": "^4.8.3"
     },
     "browserslist": [
         "last 2 chrome versions",

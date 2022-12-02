@@ -1,11 +1,11 @@
 # Cityworks Activities
 
-[![CI/CD](https://github.com/geocortex/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-cityworks/actions)
-[![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-cityworks)](https://www.npmjs.com/package/@geocortex/workflow-activities-cityworks)
+[![CI/CD](https://github.com/vertigis/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/vertigis/workflow-activities-cityworks/actions)
+[![npm](https://img.shields.io/npm/v/@vertigis/workflow-activities-cityworks)](https://www.npmjs.com/package/@vertigis/workflow-activities-cityworks)
 
 This project contains activities for interacting with the Cityworks REST API in a [VertiGIS Studio Workflow](https://www.vertigisstudio.com/products/vertigis-studio-workflow/).
 
-This project uses version `15.6.1` of the Cityworks TypeScript SDK. To use this activity pack you must have a license to use the Cityworks REST API.
+This project uses version `15.8.3` of the Cityworks TypeScript SDK. To use this activity pack you must have a license to use the Cityworks REST API.
 
 ## Usage
 
