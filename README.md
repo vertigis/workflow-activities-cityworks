@@ -20,8 +20,8 @@ To use the Cityworks activities in [VertiGIS Studio Workflow Designer](https://a
     - Purpose: `Ready To Use`
     - API: `JavaScript`
     - URL: The URL to this activity pack manifest
-        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks/activitypack.json for the latest version
-        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks@0.1.0/activitypack.json for a specific version
+        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks/@^1/activitypack.json for the latest version
+        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks@1.0.0/activitypack.json for a specific version
     - Title: Your desired title
     - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/)
