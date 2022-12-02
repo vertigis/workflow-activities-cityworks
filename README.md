@@ -1,11 +1,11 @@
 # Cityworks Activities
 
-[![CI/CD](https://github.com/geocortex/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-cityworks/actions)
-[![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-cityworks)](https://www.npmjs.com/package/@geocortex/workflow-activities-cityworks)
+[![CI/CD](https://github.com/vertigis/workflow-activities-cityworks/workflows/CI/CD/badge.svg)](https://github.com/vertigis/workflow-activities-cityworks/actions)
+[![npm](https://img.shields.io/npm/v/@vertigis/workflow-activities-cityworks)](https://www.npmjs.com/package/@vertigis/workflow-activities-cityworks)
 
 This project contains activities for interacting with the Cityworks REST API in a [VertiGIS Studio Workflow](https://www.vertigisstudio.com/products/vertigis-studio-workflow/).
 
-This project uses version `15.6.1` of the Cityworks TypeScript SDK.
+This project uses version `15.8.3` of the Cityworks TypeScript SDK. To use this activity pack you must have a license to use the Cityworks REST API.
 
 ## Usage
 
@@ -20,8 +20,8 @@ To use the Cityworks activities in [VertiGIS Studio Workflow Designer](https://a
     - Purpose: `Ready To Use`
     - API: `JavaScript`
     - URL: The URL to this activity pack manifest
-        - Use https://unpkg.com/@geocortex/workflow-activities-cityworks/activitypack.json for the latest version
-        - Use https://unpkg.com/@geocortex/workflow-activities-cityworks@0.1.0/activitypack.json for a specific version
+        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks/activitypack.json for the latest version
+        - Use https://unpkg.com/@vertigis/workflow-activities-cityworks@0.1.0/activitypack.json for a specific version
     - Title: Your desired title
     - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/)
@@ -45,7 +45,7 @@ To use the Cityworks activities in [VertiGIS Studio Workflow Designer](https://a
 
 ## Development
 
-This project was bootstrapped with the [VertiGIS Studio Workflow SDK](https://github.com/geocortex/vertigis-workflow-sdk). Before you can use this activity pack in the [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/), you will need to [register the activity pack](https://developers.geocortex.com/docs/workflow/sdk-web-overview#register-the-activity-pack).
+This project was bootstrapped with the [VertiGIS Studio Workflow SDK](https://github.com/geocortex/vertigis-workflow-sdk). Before you can use this activity pack in the [VertiGIS Studio Workflow Designer](https://apps.vertigisstudio.com/workflow/designer/), you will need to [register the activity pack](https://developers.vertigisstudio.com/docs/workflow/sdk-web-overview#register-the-activity-pack).
 
 ## Available Scripts
 
@@ -57,7 +57,7 @@ Interactively generate a new activity or form element.
 
 ### `npm start`
 
-Runs the project in development mode. Your activity pack will be available at [http://localhost:5000/main.js](http://localhost:5000/main.js). The HTTPS certificate of the development server is a self-signed certificate that web browsers will warn about. To work around this open [`https://localhost:5000/main.js`](https://localhost:5000/main.js) in a web browser and allow the invalid certificate as an exception. For creating a locally-trusted HTTPS certificate see the [Configuring a HTTPS Certificate](https://developers.geocortex.com/docs/workflow/sdk-web-overview/#configuring-a-https-certificate) section on the [VertiGIS Studio Developer Center](https://developers.geocortex.com/docs/workflow/overview/).
+Runs the project in development mode. Your activity pack will be available at [http://localhost:5000/main.js](http://localhost:5000/main.js). The HTTPS certificate of the development server is a self-signed certificate that web browsers will warn about. To work around this open [`https://localhost:5000/main.js`](https://localhost:5000/main.js) in a web browser and allow the invalid certificate as an exception. For creating a locally-trusted HTTPS certificate see the [Configuring a HTTPS Certificate](https://developers.vertigisstudio.com/docs/workflow/sdk-web-overview/#configuring-a-https-certificate) section on the [VertiGIS Studio Developer Center](https://developers.vertigisstudio.com/docs/workflow/overview/).
 
 ### `npm run lint`
 
@@ -77,11 +77,11 @@ Builds the activity pack for production to the `build` folder. It optimizes the 
 
 Your custom activity pack is now ready to be deployed!
 
-See the [section about deployment](https://developers.geocortex.com/docs/workflow/sdk-web-overview/#deployment) in the [VertiGIS Studio Developer Center](https://developers.geocortex.com/docs/workflow/overview/) for more information.
+See the [section about deployment](https://developers.vertigisstudio.com/docs/workflow/sdk-web-overview/#deployment) in the [VertiGIS Studio Developer Center](https://developers.vertigisstudio.com/docs/workflow/overview/) for more information.
 
 ## Documentation
 
-Find [further documentation on the SDK](https://developers.geocortex.com/docs/workflow/sdk-web-overview/) on the [VertiGIS Studio Developer Center](https://developers.geocortex.com/docs/workflow/overview/)
+Find [further documentation on the SDK](https://developers.vertigisstudio.com/docs/workflow/sdk-web-overview/) on the [VertiGIS Studio Developer Center](https://developers.vertigisstudio.com/docs/workflow/overview/)
 
 ## Contributing
 
