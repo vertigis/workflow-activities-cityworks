@@ -60,11 +60,11 @@ jobs:
 
             - run: cp LICENSE package.json README.md build
 
-            - run: cp ./node_modules/cw-sdk/LICENSE build/CITYWORKS-LICENSE
+            - run: cp node_modules/cw-sdk/LICENSE build/CITYWORKS-LICENSE
 
             - name: Release 🚀
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-              run: npx semantic-release@^19 --dry-run
+              run: npx semantic-release@^19
               working-directory: ./build
