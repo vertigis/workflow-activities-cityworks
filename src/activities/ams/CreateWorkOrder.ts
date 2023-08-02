@@ -31,9 +31,9 @@ export interface CreateWorkOrderInputs {
      */
     y?: number;
     /**
-     * @description	The WKID of the location coordinates for the work order.
+     * @description	The WKID of the spatial reference of the coordinates of the work order.
      */
-    WKID?: number;
+    wkid?: number;
     /**
      * @description Additional work order options.
      */
@@ -55,7 +55,7 @@ export interface CreateWorkOrderOutputs {
  * @category Cityworks - AMS
  * @description Create a Cityworks work order.
  * @clientOnly
- * @unsupportedApps VSM
+ * @unsupportedApps GMV
  */
 export class CreateWorkOrder implements IActivityHandler {
     async execute(
@@ -78,7 +78,7 @@ export class CreateWorkOrder implements IActivityHandler {
             WOTemplateId: inputs.templateId,
             X: inputs.x,
             Y: inputs.y,
-            WKID: inputs.WKID,
+            WKID: inputs.wkid,
             ...inputs.options,
         });
         checkResponse(response);
