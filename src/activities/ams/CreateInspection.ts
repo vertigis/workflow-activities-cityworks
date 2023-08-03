@@ -32,7 +32,7 @@ export interface CreateInspectionInputs {
      */
     y?: number;
     /**
-     * @description	The WKID of the spatial reference of the coordinates of the work order.
+     * @description	The WKID of the spatial reference of the coordinates of the inspection.
      */
     wkid?: number;
     /**

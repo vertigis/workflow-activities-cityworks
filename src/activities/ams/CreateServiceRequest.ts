@@ -27,7 +27,7 @@ export interface CreateServiceRequestInputs {
      */
     y?: number;
     /**
-     * @description	The WKID of the spatial reference of the coordinates of the work order.
+     * @description	The WKID of the spatial reference of the coordinates of the service request.
      */
     wkid?: number;
     /**
