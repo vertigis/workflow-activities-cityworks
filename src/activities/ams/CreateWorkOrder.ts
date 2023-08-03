@@ -31,6 +31,10 @@ export interface CreateWorkOrderInputs {
      */
     y?: number;
     /**
+     * @description	The WKID of the spatial reference of the coordinates of the work order.
+     */
+    wkid?: number;
+    /**
      * @description Additional work order options.
      */
     options: Omit<
@@ -74,6 +78,7 @@ export class CreateWorkOrder implements IActivityHandler {
             WOTemplateId: inputs.templateId,
             X: inputs.x,
             Y: inputs.y,
+            WKID: inputs.wkid,
             ...inputs.options,
         });
         checkResponse(response);

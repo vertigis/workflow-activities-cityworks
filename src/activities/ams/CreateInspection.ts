@@ -32,6 +32,10 @@ export interface CreateInspectionInputs {
      */
     y?: number;
     /**
+     * @description	The WKID of the spatial reference of the coordinates of the inspection.
+     */
+    wkid?: number;
+    /**
      * @description Additional inspection options.
      */
     options: Omit<
@@ -75,6 +79,7 @@ export class CreateInspection implements IActivityHandler {
             InspTemplateId: inputs.templateId,
             X: inputs.x,
             Y: inputs.y,
+            WKID: inputs.wkid,
             ...inputs.options,
         });
         checkResponse(response);

@@ -27,6 +27,10 @@ export interface CreateServiceRequestInputs {
      */
     y?: number;
     /**
+     * @description	The WKID of the spatial reference of the coordinates of the service request.
+     */
+    wkid?: number;
+    /**
      * @description Additional service request options.
      */
     options: Omit<ServiceRequestServiceTypes.Requests.Create, "ProblemSid">;
@@ -63,6 +67,7 @@ export class CreateServiceRequest implements IActivityHandler {
             ProblemSid: inputs.problemSid,
             X: inputs.x,
             Y: inputs.y,
+            WKID: inputs.wkid,
             ...inputs.options,
         });
         checkResponse(response);
