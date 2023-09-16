@@ -30,7 +30,7 @@ export interface GetInspectionAttachmentsOutputs {
  * @category Cityworks - AMS
  * @description Gets Cityworks inspections attachments.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetInspectionAttachments implements IActivityHandler {
     async execute(

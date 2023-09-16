@@ -32,7 +32,7 @@ export interface GetServiceRequestProblemsOutputs {
  * @category Cityworks - AMS
  * @description Gets a list of problems for a Cityworks service request.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetServiceRequestProblems implements IActivityHandler {
     async execute(

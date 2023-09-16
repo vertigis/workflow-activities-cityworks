@@ -19,7 +19,7 @@ export interface AddWorkOrderEquipmentCostsInputs {
      */
     workOrderId: string | number;
     /**
-     * @description	The equipment SID or SIDs.
+     * @description The equipment SID or SIDs.
      */
     equipmentSid?: number | number[];
     /**
@@ -48,7 +48,7 @@ export interface AddWorkOrderEquipmentCostsOutputs {
  * @category Cityworks - AMS
  * @description Add equipment costs to a Cityworks work order.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class AddWorkOrderEquipmentCosts implements IActivityHandler {
     async execute(

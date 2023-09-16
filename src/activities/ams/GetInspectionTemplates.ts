@@ -44,7 +44,7 @@ export interface GetInspectionTemplatesOutputs {
  * @category Cityworks - AMS
  * @description Searches for Cityworks inspection templates.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetInspectionTemplates implements IActivityHandler {
     async execute(

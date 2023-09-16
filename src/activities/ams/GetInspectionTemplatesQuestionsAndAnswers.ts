@@ -31,10 +31,11 @@ export interface GetInspectionTemplatesQuestionsAndAnswersOutputs {
  * @category Cityworks - AMS
  * @description Gets the questions and answers for a Cityworks inspection template.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetInspectionTemplatesQuestionsAndAnswers
-    implements IActivityHandler {
+    implements IActivityHandler
+{
     async execute(
         inputs: GetInspectionTemplatesQuestionsAndAnswersInputs
     ): Promise<GetInspectionTemplatesQuestionsAndAnswersOutputs> {

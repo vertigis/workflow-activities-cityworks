@@ -39,7 +39,7 @@ export interface GetWorkOrderEntitiesOutputs {
  * @category Cityworks - AMS
  * @description Gets the entities of a Cityworks work order.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetWorkOrderEntities implements IActivityHandler {
     async execute(

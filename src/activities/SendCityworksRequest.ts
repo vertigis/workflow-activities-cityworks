@@ -884,7 +884,7 @@ export interface SendCityworksRequestOutputs {
  * @defaultName cwRequest
  * @description Utility activity to generically access any Cityworks REST API operation.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class SendCityworksRequest implements IActivityHandler {
     async execute(

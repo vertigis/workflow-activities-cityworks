@@ -47,7 +47,7 @@ export interface AddInspectionAttachmentOutputs {
  * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks inspection.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class AddInspectionAttachment implements IActivityHandler {
     async execute(
@@ -85,7 +85,8 @@ export class AddInspectionAttachment implements IActivityHandler {
                 body: formData,
             }
         );
-        const response = (await request.json()) as AttachmentsServiceTypes.Responses.AddInspectionAttachment;
+        const response =
+            (await request.json()) as AttachmentsServiceTypes.Responses.AddInspectionAttachment;
         checkResponse(response);
 
         return {

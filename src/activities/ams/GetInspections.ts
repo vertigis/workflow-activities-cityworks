@@ -32,7 +32,7 @@ export interface GetInspectionsOutputs {
  * @category Cityworks - AMS
  * @description Searches for Cityworks inspections.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetInspections implements IActivityHandler {
     async execute(

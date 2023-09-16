@@ -53,7 +53,7 @@ export interface AddWorkOrderAttachmentOutputs {
  * @category Cityworks - AMS
  * @description Add an attachment to a Cityworks work order.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class AddWorkOrderAttachment implements IActivityHandler {
     async execute(
@@ -92,7 +92,8 @@ export class AddWorkOrderAttachment implements IActivityHandler {
                 body: formData,
             }
         );
-        const response = (await request.json()) as AttachmentsServiceTypes.Responses.AddWorkOrderAttachment;
+        const response =
+            (await request.json()) as AttachmentsServiceTypes.Responses.AddWorkOrderAttachment;
         checkResponse(response);
 
         return {

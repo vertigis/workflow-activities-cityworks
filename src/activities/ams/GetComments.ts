@@ -48,7 +48,7 @@ export interface GetCommentsOutputs {
  * @category Cityworks - AMS
  * @description Gets the comments of a Cityworks activity.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetComments implements IActivityHandler {
     async execute(inputs: GetCommentsInputs): Promise<GetCommentsOutputs> {

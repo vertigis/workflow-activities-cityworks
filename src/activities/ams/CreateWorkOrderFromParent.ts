@@ -31,7 +31,7 @@ export interface CreateWorkOrderFromParentOutputs {
  * @category Cityworks - AMS
  * @description Create a Cityworks work order from a work order.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class CreateWorkOrderFromParent implements IActivityHandler {
     async execute(

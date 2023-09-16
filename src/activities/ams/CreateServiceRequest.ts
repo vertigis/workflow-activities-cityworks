@@ -48,7 +48,7 @@ export interface CreateServiceRequestOutputs {
  * @category Cityworks - AMS
  * @description Create a Cityworks service request.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class CreateServiceRequest implements IActivityHandler {
     async execute(
