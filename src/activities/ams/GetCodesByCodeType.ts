@@ -30,7 +30,7 @@ export interface GetCodesByCodeTypeOutputs {
  * @category Cityworks - AMS
  * @description Gets the list of Cityworks codes for the given code types.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetCodesByCodeType implements IActivityHandler {
     async execute(

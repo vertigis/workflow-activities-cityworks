@@ -31,7 +31,7 @@ export interface GetServiceRequestsOutputs {
  * @category Cityworks - AMS
  * @description Searches for Cityworks service requests.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetServiceRequests implements IActivityHandler {
     async execute(

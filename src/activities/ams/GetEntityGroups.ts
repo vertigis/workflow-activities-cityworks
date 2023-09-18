@@ -31,7 +31,7 @@ export interface GetEntityGroupsOutputs {
  * @defaultName cwEntityGroups
  * @description Gets the Cityworks entity groups.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetEntityGroups implements IActivityHandler {
     async execute(

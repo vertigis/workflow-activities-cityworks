@@ -39,7 +39,7 @@ export interface GetServiceRequestTemplatesOutputs {
  * @category Cityworks - AMS
  * @description Searches for Cityworks service request templates.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetServiceRequestTemplates implements IActivityHandler {
     async execute(

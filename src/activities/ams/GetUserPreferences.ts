@@ -34,7 +34,7 @@ export interface GetUserPreferencesOutputs {
  * @category Cityworks - AMS
  * @description Gets the preferences for a user.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetUserPreferences implements IActivityHandler {
     /** Perform the execution logic of the activity. */

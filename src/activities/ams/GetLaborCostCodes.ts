@@ -37,7 +37,7 @@ export interface GetLaborCostCodesOutputs {
  * @defaultName cwCostCodes
  * @description Gets the Cityworks labor cost codes.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetLaborCostCodes implements IActivityHandler {
     async execute(

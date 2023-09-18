@@ -39,7 +39,7 @@ export interface CancelServiceRequestOutputs {
  * @category Cityworks - AMS
  * @description Cancels Cityworks service requests.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class CancelServiceRequest implements IActivityHandler {
     async execute(

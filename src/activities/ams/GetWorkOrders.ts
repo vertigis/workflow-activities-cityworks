@@ -36,7 +36,7 @@ export interface GetWorkOrdersOutputs {
  * @category Cityworks - AMS
  * @description Searches for Cityworks work orders.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetWorkOrders implements IActivityHandler {
     async execute(inputs: GetWorkOrdersInputs): Promise<GetWorkOrdersOutputs> {

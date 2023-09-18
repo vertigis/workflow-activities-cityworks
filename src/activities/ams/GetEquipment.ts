@@ -35,7 +35,7 @@ export interface GetEquipmentOutputs {
  * @defaultName cwEmployees
  * @description Searches for Cityworks employees.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class GetEquipment implements IActivityHandler {
     async execute(inputs: GetEquipmentInputs): Promise<GetEquipmentOutputs> {

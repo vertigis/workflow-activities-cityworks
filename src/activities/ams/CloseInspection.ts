@@ -31,7 +31,7 @@ export interface CloseInspectionOutputs {
  * @category Cityworks - AMS
  * @description Closes Cityworks inspections.
  * @clientOnly
- * @unsupportedApps GMV
+ * @supportedApps EXB, GWV, GVH, WAB
  */
 export class CloseInspection implements IActivityHandler {
     async execute(
