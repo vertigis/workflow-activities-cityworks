@@ -33,7 +33,7 @@
         "@babel/preset-typescript": "^7.17.12",
         "@geocortex/workflow": "5.30.1",
         "@types/jest": "^28.1.3",
-        "@vertigis/workflow-sdk": "2.0.5",
+        "@vertigis/workflow-sdk": "4.1.0",
         "babel-jest": "^28.1.1",
         "conventional-changelog-conventionalcommits": "^5.0.0",
         "eslint-plugin-prettier": "^4.0.0",
