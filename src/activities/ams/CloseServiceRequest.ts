@@ -1,4 +1,4 @@
-import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+import type { IActivityHandler } from "@vertigis/workflow/IActivityHandler";
 import { ServiceRequestService } from "cw-sdk/api-service";
 import { IApiService } from "cw-sdk/api-service/i-api-service";
 import { RequestBase } from "cw-sdk/core/types";
