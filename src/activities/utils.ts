@@ -1,4 +1,4 @@
-import { CoreResponseStatus, ServiceTypes } from "cw-sdk/core";
+import { ServiceTypes } from "cw-sdk/core";
 
 /**
  * Checks the status of a Cityworks service response and throws an error if it is not OK.
@@ -9,7 +9,7 @@ export function checkResponse(
     response: ServiceTypes.CoreResponseBase,
     message?: string
 ): void {
-    if (response.Status !== CoreResponseStatus.Ok) {
+    if (response.Status !== ServiceTypes.CoreResponseStatus.Ok) {
         throw new CityworksRequestError(response, message);
     }
 }

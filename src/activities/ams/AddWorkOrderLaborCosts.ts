@@ -1,4 +1,4 @@
-import type { IActivityHandler } from "@geocortex/workflow/runtime/IActivityHandler";
+import type { IActivityHandler } from "@vertigis/workflow/IActivityHandler";
 import { LaborCostService } from "cw-sdk/api-service";
 import { LaborCostServiceTypes } from "cw-sdk/api-interface/LaborCostService";
 import { IApiService } from "cw-sdk/api-service/i-api-service";
